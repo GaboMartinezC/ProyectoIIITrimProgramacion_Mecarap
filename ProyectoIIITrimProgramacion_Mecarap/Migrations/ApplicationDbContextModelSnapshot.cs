@@ -22,6 +22,27 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Cliente", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pass")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios");
+                });
+
             modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Estado", b =>
                 {
                     b.Property<int>("Id")
@@ -79,6 +100,33 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("InformesFinal");
+                });
+
+            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Mecanico", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<int?>("IdTipoUsuario")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pass")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdTipoUsuario");
+
+                    b.ToTable("Mecanicos");
                 });
 
             modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Observacion", b =>
@@ -161,10 +209,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<int?>("IdCliente")
-                        .IsRequired()
-                        .HasColumnType("int");
-
                     b.Property<int?>("IdEstado")
                         .IsRequired()
                         .HasColumnType("int");
@@ -177,6 +221,10 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
+                    b.Property<int?>("IdMecanico")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.Property<int?>("IdProgreso")
                         .IsRequired()
                         .HasColumnType("int");
@@ -185,13 +233,13 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
                     b.HasIndex("IdAuto");
 
-                    b.HasIndex("IdCliente");
-
                     b.HasIndex("IdEstado");
 
                     b.HasIndex("IdHojaIngreso");
 
                     b.HasIndex("IdInforme");
+
+                    b.HasIndex("IdMecanico");
 
                     b.HasIndex("IdProgreso");
 
@@ -242,38 +290,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                     b.ToTable("TiposUsuario");
                 });
 
-            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Usuario", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
-
-                    b.Property<int?>("IdAuto")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdTipoUsuario")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pass")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdAuto");
-
-                    b.HasIndex("IdTipoUsuario");
-
-                    b.ToTable("Usuarios");
-                });
-
             modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Vehiculo", b =>
                 {
                     b.Property<int?>("Id")
@@ -286,6 +302,9 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("IdPropietario")
+                        .HasColumnType("int");
+
                     b.Property<int>("IdTipoAuto")
                         .HasColumnType("int");
 
@@ -295,9 +314,22 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdPropietario");
+
                     b.HasIndex("IdTipoAuto");
 
                     b.ToTable("Vehiculos");
+                });
+
+            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Mecanico", b =>
+                {
+                    b.HasOne("ProyectoIIITrimProgramacion_Mecarap.Models.TipoUsuario", "TipoUsuario")
+                        .WithMany()
+                        .HasForeignKey("IdTipoUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TipoUsuario");
                 });
 
             modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Progreso", b =>
@@ -319,12 +351,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProyectoIIITrimProgramacion_Mecarap.Models.Usuario", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("IdCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ProyectoIIITrimProgramacion_Mecarap.Models.Estado", "Estado")
                         .WithMany()
                         .HasForeignKey("IdEstado")
@@ -343,19 +369,25 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ProyectoIIITrimProgramacion_Mecarap.Models.Mecanico", "Mecanico")
+                        .WithMany()
+                        .HasForeignKey("IdMecanico")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ProyectoIIITrimProgramacion_Mecarap.Models.Progreso", "Progreso")
                         .WithMany()
                         .HasForeignKey("IdProgreso")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Cliente");
-
                     b.Navigation("Estado");
 
                     b.Navigation("HojaIngreso");
 
                     b.Navigation("InformeFinal");
+
+                    b.Navigation("Mecanico");
 
                     b.Navigation("Progreso");
 
@@ -373,25 +405,14 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                     b.Navigation("Permiso");
                 });
 
-            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Usuario", b =>
+            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Vehiculo", b =>
                 {
-                    b.HasOne("ProyectoIIITrimProgramacion_Mecarap.Models.Vehiculo", "Vehiculo")
+                    b.HasOne("ProyectoIIITrimProgramacion_Mecarap.Models.Cliente", "Usuario")
                         .WithMany()
-                        .HasForeignKey("IdAuto");
-
-                    b.HasOne("ProyectoIIITrimProgramacion_Mecarap.Models.TipoUsuario", "TipoUsuario")
-                        .WithMany()
-                        .HasForeignKey("IdTipoUsuario")
+                        .HasForeignKey("IdPropietario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("TipoUsuario");
-
-                    b.Navigation("Vehiculo");
-                });
-
-            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Vehiculo", b =>
-                {
                     b.HasOne("ProyectoIIITrimProgramacion_Mecarap.Models.TipoAuto", "TipoAuto")
                         .WithMany()
                         .HasForeignKey("IdTipoAuto")
@@ -399,6 +420,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         .IsRequired();
 
                     b.Navigation("TipoAuto");
+
+                    b.Navigation("Usuario");
                 });
 #pragma warning restore 612, 618
         }

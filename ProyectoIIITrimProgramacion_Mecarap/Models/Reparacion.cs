@@ -13,12 +13,12 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         [Required]
         public int? IdAuto { get; set; }
         [ForeignKey("IdAuto")]
-        public virtual Vehiculo Vehiculo { get; set; }
+        public virtual Vehiculo? Vehiculo { get; set; }
 
         [Required]
         public int? IdHojaIngreso { get; set; }
         [ForeignKey("IdHojaIngreso")]
-        public virtual HojaIngreso HojaIngreso { get; set; }
+        public virtual HojaIngreso? HojaIngreso { get; set; }
 
         [Required]
         public int? IdProgreso { get; set; }
@@ -31,17 +31,9 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         public virtual InformeFinal? InformeFinal { get; set; }
 
         [Required]
-        public int? IdCliente { get; set; }
-        [ForeignKey("IdCliente")]
-        public virtual Usuario? Cliente { get; set; }
-
-        /*
-        [Required]
         public int? IdMecanico { get; set; }
         [ForeignKey("IdMecanico")]
-        public virtual Usuario? Mecanico { get; set; }
-        */
-
+        public virtual Mecanico? Mecanico { get; set; }
         [Required]
         public int? IdEstado { get; set; }
         [ForeignKey("IdEstado")]

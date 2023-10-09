@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qR/L3mRt1z8dDXV0cAz/iOqQxe18lcvwl456AhMrpaHqQHgakjb2u8Sd6r7XdjcNX2Slr7EpcpK1ztoqX5UGww==",
+  "dgSpecHash": "CRRoZKERW0bGv3x2Ad/luaZ5ig2CvPvXGGnfp8mUR8AbyKSO+vQMXsXC144YhFwDEifdQxWilMDT1SzTcIH6Ig==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marti\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap.csproj",
+  "projectFilePath": "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marti\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marti\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap.csproj": {}
+    "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marti\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap.csproj": {
+    "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap.csproj",
+        "projectUniqueName": "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap.csproj",
         "projectName": "ProyectoIIITrimProgramacion_Mecarap",
-        "projectPath": "C:\\Users\\marti\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap.csproj",
+        "projectPath": "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\obj\\",
+        "outputPath": "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",

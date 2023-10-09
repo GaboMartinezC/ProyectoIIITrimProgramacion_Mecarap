@@ -15,5 +15,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         public int IdTipoAuto { get; set; }
         [ForeignKey("IdTipoAuto")]
         public virtual TipoAuto? TipoAuto { get; set; }
+        public int IdPropietario { get; set; }
+        [ForeignKey("IdPropietario")]
+        public virtual Cliente? Usuario { get; set; }
     }
 }

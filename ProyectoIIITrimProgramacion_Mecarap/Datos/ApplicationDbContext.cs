@@ -16,7 +16,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Datos
         public DbSet<InformeFinal> InformesFinal { get; set; }
         public DbSet<Progreso> Progresos { get; set; }
         public DbSet<TipoUsuario> TiposUsuario { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Cliente> Usuarios { get; set; }
+        public DbSet<Mecanico> Mecanicos { get; set; }
         public DbSet<Reparacion> Reparaciones { get; set; }
 
     }

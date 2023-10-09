@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Models
 {
-    public class Usuario
+    public class Mecanico
     {
         [Key]
         public int? Id { get; set; }
@@ -15,9 +15,5 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         public int? IdTipoUsuario { get; set; }
         [ForeignKey("IdTipoUsuario")]
         public virtual TipoUsuario? TipoUsuario { get; set; }
-        public int? IdAuto { get; set; }
-        [ForeignKey("IdAuto")]
-        public virtual Vehiculo? Vehiculo { get; set; }
-
     }
 }
