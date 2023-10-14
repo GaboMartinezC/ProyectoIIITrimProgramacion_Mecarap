@@ -38,9 +38,14 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             }
             return View();
         }
-        public IActionResult Editar(int id)
+        public IActionResult Editar(int? id)
         {
-            return View();
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            Vehiculo? vehiculo = _db.Vehiculos.Find(id);
+            return View(vehiculo);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
@@ -48,8 +53,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         {
             if (ModelState.IsValid)
             {
-                vehiculo.Borrado = false;
-                _db.Vehiculos.Add(vehiculo);
+                _db.Vehiculos.Update(vehiculo); 
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -57,6 +61,20 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         }
         public IActionResult Eliminar()
         {
+            return View();
+        }
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public IActionResult Eliminar(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            Vehiculo? vehiculo = _db.Vehiculos.Find(id);
+            vehiculo.Borrado = true;
+            _db.Update(vehiculo);
+            _db.SaveChanges();
             return View();
         }
     }
