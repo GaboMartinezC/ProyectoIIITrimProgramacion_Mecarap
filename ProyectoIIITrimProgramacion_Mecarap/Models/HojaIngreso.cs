@@ -11,5 +11,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         public string? Fecha { get; set; }
         [Required]
         public string? Observaciones { get; set;}
+        [Required]
+        public bool? Borrado { get; set; }
     }
 }

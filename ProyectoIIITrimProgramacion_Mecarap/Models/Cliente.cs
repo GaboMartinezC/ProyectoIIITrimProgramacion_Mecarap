@@ -11,6 +11,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         public string? Nombre { get; set; }
         [Required]
         public string? Pass { get; set; }
+        [Required]
+        public bool? Borrado { get; set; }
 
     }
 }

@@ -13,5 +13,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         public int IdObservacion { get; set; }
         [ForeignKey("IdObservacion")]
         public virtual Observacion? Observacion { get; set; }
+        [Required]
+        public bool? Borrado { get; set; }
     }
 }

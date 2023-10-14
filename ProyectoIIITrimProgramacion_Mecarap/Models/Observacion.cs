@@ -12,5 +12,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         public string? Fecha { get; set; }
         [Required]
         public string? ImgUrl { get; set; }
+        [Required]
+        public bool? Borrado { get; set; }
     }
 }
