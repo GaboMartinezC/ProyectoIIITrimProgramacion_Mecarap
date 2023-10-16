@@ -9,11 +9,9 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
     public class VehiculoController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        public VehiculoController(ApplicationDbContext db, IWebHostEnvironment webHostEnvironment)
+        public VehiculoController(ApplicationDbContext db)
         {
             _db = db;
-            _webHostEnvironment = webHostEnvironment;
         }
         public IActionResult Index()
         {

@@ -1,7 +1,13 @@
+body {
+    background-color: #e2e2e0;
+}
+.card {
+    background-color: white;
+    border-radius: 25px;
+}
 html {
   font-size: 14px;
 }
-
 @media (min-width: 768px) {
   html {
     font-size: 16px;
