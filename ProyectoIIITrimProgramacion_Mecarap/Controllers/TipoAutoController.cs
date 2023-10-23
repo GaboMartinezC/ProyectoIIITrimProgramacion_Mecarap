@@ -64,11 +64,12 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             {
                 return NotFound();
             }
-            Vehiculo? vehiculo = _db.Vehiculos.Find(id);
-            return View(vehiculo);
+            TipoAuto tipoAuto = _db.TiposAuto.Find(id);
+            return View(tipoAuto);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
+        //fixme
         public IActionResult Editar(TipoAuto tipoAuto)
         {
             if (ModelState.IsValid)
@@ -94,19 +95,24 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             }
             return View();
         }
-        public IActionResult Eliminar()
-        {
-            return View();
-        }
-        [ValidateAntiForgeryToken]
-        [HttpPost]
         public IActionResult Eliminar(int? id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            Vehiculo? vehiculo = _db.Vehiculos.Find(id);
+            TipoAuto tipo = _db.TiposAuto.Find(id);
+            return View(tipo);
+        }
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public IActionResult Eliminar(TipoAuto? tipo)
+        {
+            if (tipo.Id == null || tipo.Id == 0)
+            {
+                return NotFound();
+            }
+            Vehiculo? vehiculo = _db.Vehiculos.Find(tipo.Id);
             vehiculo.Borrado = true;
             _db.Update(vehiculo);
             _db.SaveChanges();
