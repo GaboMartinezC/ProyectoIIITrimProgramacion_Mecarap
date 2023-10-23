@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoIIITrimProgramacion_Mecarap.Datos;
 using ProyectoIIITrimProgramacion_Mecarap.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {
@@ -28,10 +26,10 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         [HttpPost]
         public IActionResult Guardar(TipoAuto tipoAuto)
         {
-            if (ModelState.IsValid)
+            //Recibo un archivo que proviene del formulario html
+            var files = HttpContext.Request.Form.Files;
+            if (files.Count == 1)
             {
-                //Recibo un archivo que proviene del formulario html
-                var files = HttpContext.Request.Form.Files;
                 //Guarda en la string la ubicacion donde se guardará la imagen
                 string webRootPath = _webHostEnvironment.WebRootPath;
                 //archivo + ruta
@@ -45,11 +43,20 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
                     files[0].CopyTo(fileStream);
                 }
                 tipoAuto.ImgUrl = fileName + extension;
+                tipoAuto.Borrado = false;
+                //verifica que no hayan dos tipo autos iguales
+                var dbSet = _db.TiposAuto;
+                foreach (var tipo in dbSet)
+                {
+                    if (tipo.Descripcion == tipoAuto.Descripcion || tipo.ImgUrl == tipoAuto.Descripcion)
+                        return View();
+                }
                 _db.TiposAuto.Add(tipoAuto);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View();
+            else
+                return View();
         }
         public IActionResult Editar(int? id)
         {

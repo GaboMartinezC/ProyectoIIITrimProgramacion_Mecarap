@@ -22,9 +22,9 @@
                         }
                     </datalist>
                 </div>
-                @foreach (var tipo in Model)
-                {
-                    <div class="row p-1">
+                <div class="row p-1">
+                    @foreach (var tipo in Model)
+                    {
                         <div class="col-12 col-md-4 d-flex justify-content-center p-1">
                             <div class="card" style="width: 18rem;">
                                 <img src="@tipo.ImgUrl" class="card-img-top" alt="..." height="100" width="200">
@@ -39,8 +39,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>    
-                }
+                    }
+                </div>
             }
             else
             {

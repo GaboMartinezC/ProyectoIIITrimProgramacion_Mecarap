@@ -10,9 +10,9 @@
         </div>
         <div class="col-12 col-md-4"></div>
         <div class="col-10 offset-1 offset-md-2 col-md-9 card">
-            <form action="" class="m-5">
-                <input type="text" class="form-control" placeholder="Descripcion"><br>
-                <input class="form-control" type="file"><br>
+            <form action="" class="m-5" enctype="multipart/form-data">
+                <input type="text" class="form-control m-1" placeholder="Descripcion"><br>
+                <input class="form-control m-1" type="file"><br>
                 <button class="btn btn-outline-primary">Ingresar</button>
                 <a class="btn btn-outline-danger" asp-controller="TipoAuto" asp-action="Index">Cancelar</a>
             </form>
