@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoIIITrimProgramacion_Mecarap.Datos;
 using ProyectoIIITrimProgramacion_Mecarap.Models;
+using ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +22,10 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         }
         public IActionResult Guardar()
         {
-            return View();
+            VehiculoVM vm = new();
+            vm.tiposAuto = _db.TiposAuto;
+            vm.clientes = _db.Usuarios;
+            return View(vm);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]

@@ -1,4 +1,29 @@
-﻿@{
+﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels.VehiculoVM
+@{
 	ViewData["Title"] = "Vehículo";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 offset-md-4 col-md-4 text-center">
+            <h1>Guardar Vehiculo</h1>
+        </div>
+        <div class="col-12 col-md-4"></div>
+        <div class="col-10 offset-1 offset-md-2 col-md-9 card">
+            <form method="post" class="m-5" asp-action="Guardar" asp-controller="Vehiculo">
+                <input asp-for="Descripcion" type="text" class="form-control" placeholder="Descripcion" id="descripcion"><br>
+                <input asp-for="Modelo" type="text" class="form-control" placeholder="Modelo" id="modelo"><br>
+                <select asp-for="">
+                    @foreach (var tipo in Model.tiposAuto)
+                    {
+                        <option value=""></option>
+                    }
+                </select>
+                <button class="btn btn-outline-primary">Ingresar</button>
+                <button class="btn btn-outline-danger">Cancelar</button>
+                <div id="notificacion"></div>
+            </form>
+        </div>
+        <div class="col-1 col-md-1"></div>
+    </div>
+</div>
