@@ -13,15 +13,33 @@
             <form method="post" class="m-5" asp-action="Guardar" asp-controller="Vehiculo">
                 <input asp-for="Descripcion" type="text" class="form-control" placeholder="Descripcion" id="descripcion"><br>
                 <input asp-for="Modelo" type="text" class="form-control" placeholder="Modelo" id="modelo"><br>
-                <select asp-for="">
+                <label>Tipo de Auto</label>
+                <select asp-for="IdTipoAuto" class="form-control m-1">
                     @foreach (var tipo in Model.tiposAuto)
                     {
-                        <option value=""></option>
+                        <option value="@tipo.Id">
+                            <span>
+                                @tipo.Descripcion
+                            </span>
+                        </option>
                     }
                 </select>
-                <button class="btn btn-outline-primary">Ingresar</button>
-                <button class="btn btn-outline-danger">Cancelar</button>
-                <div id="notificacion"></div>
+                <label>Propietario</label>
+                <select asp-for="IdPropietario" class="form-control m-1">
+                    @foreach (var cliente in Model.clientes)
+                    {
+                        <option value="@cliente.Id">
+                            <span>
+                                @cliente.Nombre
+                            </span>
+                        </option>
+                    }
+                </select>
+                <div
+                    @Model.Notificacion
+                </div>
+                <button class="btn btn-outline-primary" type="submit">Ingresar</button>
+                <a asp-action="Index" asp-controller="Vehiculo" class="btn btn-outline-danger">Cancelar</a>
             </form>
         </div>
         <div class="col-1 col-md-1"></div>

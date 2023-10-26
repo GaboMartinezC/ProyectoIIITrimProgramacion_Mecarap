@@ -19,6 +19,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         [ForeignKey("IdPropietario")]
         public virtual Cliente? Usuario { get; set; }
         [Required]
-        public bool? Borrado { get; set; }
+        public bool Borrado { get; set; }
     }
 }

@@ -29,16 +29,31 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Guardar(Vehiculo vehiculo)
+        public IActionResult Guardar(VehiculoVM vm)
         {
-            if (ModelState.IsValid)
+            Vehiculo vehiculo = new Vehiculo();
+            IEnumerable<Vehiculo> dbset = _db.Vehiculos;
+            foreach (var auto in dbset)
             {
-                vehiculo.Borrado = false;
-                _db.Vehiculos.Add(vehiculo);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+                if (auto.Descripcion == vm.Descripcion.Trim())
+                {
+                    if (!auto.Borrado)
+                    {
+                        vm.tiposAuto = _db.TiposAuto;
+                        vm.clientes = _db.Usuarios;
+                        vm.Notificacion = "<div class=\"alert alert-warning alert-dismissible fade show m-3 p-3\" role=\"alert\">\r\n<strong>Registro ya existente</strong> Los datos de descripcion no se pueden repetir\r\n</div>";
+                        return View(vm);
+                    }
+                }
             }
-            return View();
+            vehiculo.Descripcion = vm.Descripcion.Trim();
+            vehiculo.Modelo = vm.Modelo.Trim();
+            vehiculo.IdPropietario = vm.IdPropietario;
+            vehiculo.IdTipoAuto = vm.IdTipoAuto;
+            vehiculo.Borrado = false;
+            _db.Vehiculos.Add(vehiculo);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
         public IActionResult Editar(int? id)
         {
@@ -47,7 +62,15 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
                 return NotFound();
             }
             Vehiculo? vehiculo = _db.Vehiculos.Find(id);
-            return View(vehiculo);
+            VehiculoVM vm = new();
+            vm.Descripcion = vehiculo.Descripcion;
+            vm.Modelo = vehiculo.Modelo;
+            vm.IdPropietario = vehiculo.IdPropietario;
+            vm.IdTipoAuto = vehiculo.IdTipoAuto;
+            vm.Borrado = false;
+            vm.tiposAuto = _db.TiposAuto;
+            vm.clientes = _db.Usuarios;
+            return View(vm);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
@@ -61,20 +84,17 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             }
             return View();
         }
-        public IActionResult Eliminar()
+        public IActionResult Eliminar(int? id)
         {
+            Vehiculo? vehiculo = _db.Vehiculos.Find(id);
             return View();
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Eliminar(int? id)
+        public IActionResult Eliminar(Vehiculo vehiculo)
         {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            Vehiculo? vehiculo = _db.Vehiculos.Find(id);
-            vehiculo.Borrado = true;
+            Vehiculo? vec = _db.Vehiculos.Find(vehiculo.Id);
+            vec.Borrado = true;
             _db.Update(vehiculo);
             _db.SaveChanges();
             return View();
