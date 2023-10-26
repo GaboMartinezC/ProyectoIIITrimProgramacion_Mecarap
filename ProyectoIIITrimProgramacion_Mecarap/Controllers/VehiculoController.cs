@@ -78,6 +78,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         {
             if (ModelState.IsValid)
             {
+                //fixme
                 _db.Vehiculos.Update(vehiculo); 
                 _db.SaveChanges();
                 return RedirectToAction("Index");
@@ -87,17 +88,23 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         public IActionResult Eliminar(int? id)
         {
             Vehiculo? vehiculo = _db.Vehiculos.Find(id);
-            return View();
+            VehiculoVM vm = new();
+            vm.Descripcion = vehiculo.Descripcion;
+            vm.Modelo = vehiculo.Modelo;
+            vm.Borrado = false;
+            vm.tipoAuto = _db.TiposAuto.Find(vehiculo.IdTipoAuto).Descripcion;
+            vm.cliente = _db.Usuarios.Find(vehiculo.IdPropietario).Nombre;
+            return View(vm);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Eliminar(Vehiculo vehiculo)
+        public IActionResult Eliminar(VehiculoVM vm)
         {
-            Vehiculo? vec = _db.Vehiculos.Find(vehiculo.Id);
-            vec.Borrado = true;
-            _db.Update(vehiculo);
-            _db.SaveChanges();
-            return View();
+            Vehiculo vehiculo = _db.Vehiculos.Find(vm.Id);
+            _db.Vehiculos.Remove(vehiculo);
+            vehiculo.Borrado = true;
+            _db.Vehiculos.Add(vm);
+            return RedirectToAction("Index");
         }
     }
 }

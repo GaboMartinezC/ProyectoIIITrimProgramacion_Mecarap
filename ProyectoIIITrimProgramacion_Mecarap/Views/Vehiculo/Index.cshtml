@@ -37,23 +37,26 @@
                     <tbody>
                         @foreach (var vehiculo in Model)
                         {
-                            <tr>
-                                <td>@vehiculo.Id</td>
-                                <td>@vehiculo.Descripcion</td>
-                                <td>@vehiculo.Modelo</td>
-                                <td>@vehiculo.TipoAuto.Descripcion</td>
-                                <td>@vehiculo.Usuario.Nombre</td>
-                                <td>
-                                    <a asp-controller="Vehiculo" asp-action="Editar" asp-route-Id="@vehiculo.Id" class="btn btn-warning">
-                                        <p>Editar</p>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a asp-controller="Vehiculo" asp-action="Eliminar" asp-route-Id="@vehiculo.Id" class="btn btn-danger">
-                                        <p>Eliminar</p>
-                                    </a>
-                                </td>
-                            </tr>
+                            if (!vehiculo.Borrado)
+                            {
+                                <tr>
+                                    <td>@vehiculo.Id</td>
+                                    <td>@vehiculo.Descripcion</td>
+                                    <td>@vehiculo.Modelo</td>
+                                    <td>@vehiculo.TipoAuto.Descripcion</td>
+                                    <td>@vehiculo.Usuario.Nombre</td>
+                                    <td>
+                                        <a asp-controller="Vehiculo" asp-action="Editar" asp-route-Id="@vehiculo.Id" class="btn btn-warning">
+                                            <p>Editar</p>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a asp-controller="Vehiculo" asp-action="Eliminar" asp-route-Id="@vehiculo.Id" class="btn btn-danger">
+                                            <p>Eliminar</p>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
                         }
                     </tbody>
                 </table>
