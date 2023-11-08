@@ -51,7 +51,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a onclick="Eliminar(@vehiculo.Id, 'Vehiculo');" class="btn btn-danger">
+                                    <a asp-controller="Vehiculo" asp-action="Eliminar" asp-route-Id="@vehiculo.Id" class="btn btn-danger">
                                         <p>Eliminar</p>
                                     </a>
                                 </td>

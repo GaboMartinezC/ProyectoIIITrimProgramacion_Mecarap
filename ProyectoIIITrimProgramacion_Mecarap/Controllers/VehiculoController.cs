@@ -84,21 +84,27 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
                 IdTipoAuto = vm.IdTipoAuto,
                 IdPropietario = vm.IdPropietario,
                 Borrado = false
-
             };
             _db.Vehiculos.Update(vehiculo);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult Eliminar(int? id)
+        {
+            Vehiculo? vehiculo = _db.Vehiculos.Find(id);
+            vehiculo.Usuario = _db.Usuarios.Find(vehiculo.IdPropietario);
+            vehiculo.TipoAuto = _db.TiposAuto.Find(vehiculo.IdTipoAuto);
+            return View(vehiculo);
+        }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Eliminar(int id)
+        public IActionResult Eliminar(Vehiculo vehiculo)
         {
-            Vehiculo? vec = _db.Vehiculos.Find(id);
+            Vehiculo? vec = _db.Vehiculos.Find(vehiculo.Id);
             vec.Borrado = true;
             _db.Update(vec);
             _db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

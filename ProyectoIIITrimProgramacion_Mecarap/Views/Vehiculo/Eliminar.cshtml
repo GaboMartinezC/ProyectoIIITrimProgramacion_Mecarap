@@ -1,4 +1,4 @@
-﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels.VehiculoVM
+﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.Vehiculo
 @{
     ViewData["Title"] = "Vehículo";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,14 +11,15 @@
         <div class="col-12 col-md-4"></div>
         <div class="col-10 offset-1 offset-md-2 col-md-9 card">
             <form method="post" class="m-5" asp-action="Eliminar" asp-controller="Vehiculo">
+                <input asp-for="Id" type="hidden" value="@Model.Id"/>
                 <label>Descripcion</label>
                 <input asp-for="Descripcion" type="text" class="form-control" disabled value="@Model.Descripcion"><br>
                 <label>Modelo</label>
                 <input asp-for="Modelo" type="text" class="form-control" disabled value="@Model.Modelo"><br>
                 <label>Tipo de Auto</label>
-                <input disabled class="form-control m-1" value="@Model.tipoAuto"/>
+                <input disabled class="form-control m-1" value="@Model.TipoAuto.Descripcion"/>
                 <label>Propietario</label>
-                <input disabled class="form-control m-1" value="@Model.cliente"/>
+                <input disabled class="form-control m-1" value="@Model.Usuario.Nombre"/>
                 <button class="btn btn-outline-warning" type="submit">Eliminar</button>
                 <a asp-action="Index" asp-controller="Vehiculo" class="btn btn-outline-danger">Cancelar</a>
             </form>
