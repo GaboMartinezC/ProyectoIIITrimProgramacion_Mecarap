@@ -74,28 +74,29 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Editar(Vehiculo vehiculo)
+        public IActionResult Editar(VehiculoVM vm)
         {
-            if (ModelState.IsValid)
+            Vehiculo vehiculo = new()
             {
-                _db.Vehiculos.Update(vehiculo); 
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View();
-        }
-        public IActionResult Eliminar(int? id)
-        {
-            Vehiculo? vehiculo = _db.Vehiculos.Find(id);
-            return View();
+                Id = vm.Id,
+                Descripcion = vm.Descripcion,
+                Modelo = vm.Modelo,
+                IdTipoAuto = vm.IdTipoAuto,
+                IdPropietario = vm.IdPropietario,
+                Borrado = false
+
+            };
+            _db.Vehiculos.Update(vehiculo);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Eliminar(Vehiculo vehiculo)
+        public IActionResult Eliminar(int id)
         {
-            Vehiculo? vec = _db.Vehiculos.Find(vehiculo.Id);
+            Vehiculo? vec = _db.Vehiculos.Find(id);
             vec.Borrado = true;
-            _db.Update(vehiculo);
+            _db.Update(vec);
             _db.SaveChanges();
             return View();
         }

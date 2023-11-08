@@ -1,4 +1,13 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿const Eliminar = (id, controlador) => {
+    $.ajax({
+        url: `/${controlador}/Eliminar`,
+        type: "POST",
+        data: { id: id },
+        success: function (respuesta) {
+            swal("Exito!", "Eliminado correctamente", "success");
+        },
+        error: function () {
+            swal("Ha ocurrido un problema", "Error al eliminar", "success");
+        }
+    });
+}

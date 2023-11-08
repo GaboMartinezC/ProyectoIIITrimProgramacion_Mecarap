@@ -37,7 +37,9 @@
                     <tbody>
                         @foreach (var vehiculo in Model)
                         {
-                            <tr>
+                            if (!vehiculo.Borrado)
+                            {
+                                <tr>
                                 <td>@vehiculo.Id</td>
                                 <td>@vehiculo.Descripcion</td>
                                 <td>@vehiculo.Modelo</td>
@@ -49,11 +51,12 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a asp-controller="Vehiculo" asp-action="Eliminar" asp-route-Id="@vehiculo.Id" class="btn btn-danger">
+                                    <a onclick="Eliminar(@vehiculo.Id, 'Vehiculo');" class="btn btn-danger">
                                         <p>Eliminar</p>
                                     </a>
                                 </td>
-                            </tr>
+                            </tr>                                
+                            }
                         }
                     </tbody>
                 </table>
