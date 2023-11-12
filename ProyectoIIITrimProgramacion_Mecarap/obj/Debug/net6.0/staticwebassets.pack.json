@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\wwwroot\\imagenes\\tipoauto\\suv.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\tipoauto\\suv.jpg"
+    },
+    {
       "Id": "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

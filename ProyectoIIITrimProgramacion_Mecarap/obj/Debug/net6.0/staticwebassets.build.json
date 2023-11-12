@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0pXBKT1TuiyFnUTU4CAc44RTnBCMipeb8lufPvx2iJU=",
+  "Hash": "IL5PJVZVElTu7wjm9fRcEJ1MdFR7RipeXhhvCgZFwZw=",
   "Source": "ProyectoIIITrimProgramacion_Mecarap",
   "BasePath": "_content/ProyectoIIITrimProgramacion_Mecarap",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\wwwroot\\imagenes\\tipoauto\\suv.jpg",
+      "SourceId": "ProyectoIIITrimProgramacion_Mecarap",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\wwwroot\\",
+      "BasePath": "_content/ProyectoIIITrimProgramacion_Mecarap",
+      "RelativePath": "imagenes/tipoauto/suv.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\tipoauto\\suv.jpg"
     },
     {
       "Identity": "C:\\Users\\marti\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\ProyectoIIITrimProgramacion_Mecarap\\wwwroot\\js\\site.js",
