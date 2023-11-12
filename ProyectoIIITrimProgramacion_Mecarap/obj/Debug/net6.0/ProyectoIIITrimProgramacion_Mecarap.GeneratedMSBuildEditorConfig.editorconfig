@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\dylan\source\repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/dylan/source/repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Estado/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/dylan/source/repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Estado/Eliminar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvXEVsaW1pbmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

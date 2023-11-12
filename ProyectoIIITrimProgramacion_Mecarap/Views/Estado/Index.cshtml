@@ -5,39 +5,49 @@
 }
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 offset-md-4 col-md-4 text-center">
-            <h1>Estado</h1>
+        <div class="row d-flex flex-row align-items-center justify-content-center">
+            <h1 class="fw-bolder mt-4 col-2">Estado</h1>
+            <div class="col-6 d-flex ">
+                <input type="text" list="listaBusqueda" class="form-control rounded-start" placeholder="Descripción">
+                <div class="rounded-end">
+                    <svg width="15" height="15" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M26.9983 24.2078L21.6706 18.756C21.4301 18.5099 21.1041 18.3732 20.7621 18.3732H19.8911C21.366 16.4429 22.2423 14.015 22.2423 11.3739C22.2423 5.09091 17.2673 0 11.1274 0C4.98746 0 0.0124512 5.09091 0.0124512 11.3739C0.0124512 17.6569 4.98746 22.7478 11.1274 22.7478C13.7084 22.7478 16.081 21.851 17.9674 20.3418V21.2331C17.9674 21.583 18.101 21.9166 18.3414 22.1627L23.6691 27.6145C24.1714 28.1285 24.9837 28.1285 25.4806 27.6145L26.9929 26.067C27.4952 25.553 27.4952 24.7218 26.9983 24.2078ZM11.1274 18.3732C7.34938 18.3732 4.28743 15.2454 4.28743 11.3739C4.28743 7.50786 7.34404 4.37457 11.1274 4.37457C14.9054 4.37457 17.9674 7.50239 17.9674 11.3739C17.9674 15.2399 14.9108 18.3732 11.1274 18.3732Z" fill="black" />
+                    </svg>
+                </div>
+            </div>
+            <a style="all:unset; cursor: pointer;" class="col-2 border-3" asp-controller="Estado" asp-action="Guardar">
+                <svg width="15" height="15" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.27 0V10.875H0.490967V18.125H12.27V29H20.1228V18.125H31.9018V10.875H20.1228V0H12.27Z" fill="black" />
+                </svg>
+                <span class="fw-bold"> Nuevo</span>
+            </a>
         </div>
-        <div class="col-12 col-md-4"></div>
-        <div class="col-10 offset-1 offset-md-2 col-md-9 card">
+        <div style="background-color: white !important;" class="col-10 offset-1 offset-md-2 col-md-9 d-flex flex-column p-3 rounded-3">
             @if (Model.Count() > 0)
             {
-                <div class="input-group mb-3">
-                    <input type="text" list="listaBusqueda" class="form-control" placeholder="Descripción">
-                    <button class="btn btn-outline-secondary" type="button">Buscar</button>
-                    <datalist id="listaBusqueda">
-                        @foreach (var estado in Model)
-                        {
-                            <option value="@estado.Descripcion"></option>
-                        }
-                    </datalist>
-                </div>
-                <div class="row p-1">
+                <div class="row p-1 col-12">
                     @foreach (var estado in Model)
                     {
-                        <div class="col-12 col-md-4 d-flex justify-content-center p-1">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">@estado.Descripcion</h5>
-                                    <a asp-controller="Estado" asp-action="Editar" asp-route-Id="@estado" class="btn btn-outline-warning">
-                                        <p>Editar</p>
-                                    </a>
-                                    <a asp-controller="Estado" asp-action="Eliminar" asp-route-Id="@estado" class="btn btn-outline-danger">
-                                        <p>Eliminar</p>
-                                    </a>
+                        if (!estado.Borrado)
+                        {
+                            <div class=" col-3 d-flex justify-content-center px-3 py-2">
+                                <div class="card px-1 py-2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@estado.Descripcion</h5>
+                                        <a asp-controller="Estado" asp-action="Editar" asp-route-Id="@estado.Id" class="border px-3 py-1 me-2 rounded-pill bg-secondary">
+                                            <svg height="15" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M15.1621 4.37035L21.4957 10.3714L7.74246 23.4024L2.0955 23.993C1.33953 24.0722 0.700824 23.4666 0.784929 22.7503L1.41325 17.3962L15.1621 4.37035ZM25.4131 3.47689L22.4392 0.659191C21.5116 -0.21973 20.0071 -0.21973 19.0794 0.659191L16.2817 3.31002L22.6153 9.31105L25.4131 6.66023C26.3407 5.78084 26.3407 4.35581 25.4131 3.47689Z" fill="black" />
+                                            </svg>
+                                        </a>
+                                        <a asp-controller="Estado" asp-action="Eliminar" asp-route-Id="@estado.Id" class="border px-3 py-1 rounded-pill _bg-red">
+                                            <svg width="15" heigh="15" viewBox="0 0 25 27" fill="black" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M23.7064 1.68751H17.1927L16.6824 0.701376C16.5743 0.490552 16.4078 0.313211 16.2016 0.189304C15.9955 0.0653968 15.7578 -0.000159678 15.5154 9.24577e-06H9.31099C9.0691 -0.000894122 8.83184 0.0644179 8.62639 0.188463C8.42094 0.312507 8.25562 0.490267 8.14936 0.701376L7.63912 1.68751H1.12534C0.894998 1.68751 0.674091 1.7764 0.511215 1.93464C0.348339 2.09287 0.256836 2.30748 0.256836 2.53126L0.256836 4.21876C0.256836 4.44253 0.348339 4.65715 0.511215 4.81538C0.674091 4.97361 0.894998 5.06251 1.12534 5.06251H23.7064C23.9368 5.06251 24.1577 4.97361 24.3206 4.81538C24.4834 4.65715 24.5749 4.44253 24.5749 4.21876V2.53126C24.5749 2.30748 24.4834 2.09287 24.3206 1.93464C24.1577 1.7764 23.9368 1.68751 23.7064 1.68751ZM3.14461 24.627C3.18603 25.2696 3.47799 25.8727 3.96103 26.3136C4.44408 26.7545 5.08192 26.9999 5.74469 27H19.0871C19.7499 26.9999 20.3877 26.7545 20.8707 26.3136C21.3538 25.8727 21.6457 25.2696 21.6872 24.627L22.8379 6.75001H1.99384L3.14461 24.627Z" fill="black" />
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
                 </div>
             }
@@ -49,14 +59,5 @@
             }
         </div>
         <div class="col-1 col-md-1"></div>
-    </div>
-</div>
-<div class="footer fixed-bottom">
-    <div class="row">
-        <div class="col-12 offset-md-11 col-md-1">
-            <a class="btn btn-outline-primary m-1" asp-controller="Estado" asp-action="Guardar">
-                Agregar &plus;
-            </a>
-        </div>
     </div>
 </div>

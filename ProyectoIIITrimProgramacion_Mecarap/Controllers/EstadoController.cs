@@ -25,7 +25,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         public IActionResult Guardar(Estado estado)
         {
             estado.Borrado = false;
-            //verifica que no hayan dos tipo autos iguales
             var dbSet = _db.Estados;
             foreach (var e in dbSet)
             {
@@ -50,13 +49,9 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         //fixme
         public IActionResult Editar(Estado estado)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Estados.Add(estado);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View();
+            _db.Estados.Update(estado);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
         public IActionResult Eliminar(int? id)
         {
@@ -73,14 +68,11 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         [HttpPost]
         public IActionResult Eliminar(Estado estado)
         {
-            if (estado.Id == null || estado.Id == 0)
-            {
-                return NotFound();
-            }
-            estado.Borrado = true;
-            _db.Update(estado);
+            Estado? est = _db.Estados.Find(estado.Id);
+            est.Borrado = true;
+            _db.Update(est);
             _db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
