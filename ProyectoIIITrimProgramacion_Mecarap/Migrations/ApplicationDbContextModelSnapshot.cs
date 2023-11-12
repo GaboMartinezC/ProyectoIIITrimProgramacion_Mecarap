@@ -55,6 +55,10 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool?>("Borrado")
+                        .IsRequired()
+                        .HasColumnType("bit");
+
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -326,8 +330,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
-                    b.Property<bool?>("Borrado")
-                        .IsRequired()
+                    b.Property<bool>("Borrado")
                         .HasColumnType("bit");
 
                     b.Property<string>("Descripcion")
