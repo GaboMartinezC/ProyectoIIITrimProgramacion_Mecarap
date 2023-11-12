@@ -24,19 +24,17 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         [HttpPost]
         public IActionResult Guardar(Estado estado)
         {
-            //Recibo un archivo que proviene del formulario html
-            var files = HttpContext.Request.Form.Files;
-            if (files.Count == 1)
+            estado.Borrado = false;
+            //verifica que no hayan dos tipo autos iguales
+            var dbSet = _db.Estados;
+            foreach (var e in dbSet)
             {
-                estado.Borrado = false;
-                //verifica que no hayan dos tipo autos iguales
-                var dbSet = _db.Estados;
-                _db.Estados.Add(estado);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+                if (estado.Descripcion == e.Descripcion)
+                    return View();
             }
-            else
-                return View();
+            _db.Estados.Add(estado);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
         public IActionResult Editar(int? id)
         {
