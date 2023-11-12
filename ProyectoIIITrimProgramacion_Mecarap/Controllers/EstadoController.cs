@@ -67,19 +67,20 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             Estado estado = _db.Estados.Find(id);
             return View(estado);
         }
-        /*[ValidateAntiForgeryToken]
+
+
+        [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Eliminar(Estado? estado)
+        public IActionResult Eliminar(Estado estado)
         {
             if (estado.Id == null || estado.Id == 0)
             {
                 return NotFound();
             }
-            Estado estado = _db.Estados.Find(estado.Id);
             estado.Borrado = true;
             _db.Update(estado);
             _db.SaveChanges();
             return View();
-        }*/
+        }
     }
 }
