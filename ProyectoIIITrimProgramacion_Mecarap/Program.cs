@@ -10,7 +10,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+builder.Services.AddScoped<IEstadoRepositorio, EstadoRepositorio>();
+builder.Services.AddScoped<IHojaIngresoRepositorio, HojaIngresoRepositorio>();
+builder.Services.AddScoped<IInformeFinalRepositorio, InformeFinalRepositorio>();
+builder.Services.AddScoped<IMecanicoRepositorio, MecanicoRepositorio>();
+builder.Services.AddScoped<IObservacionRepositorio, ObservacionRepositorio>();
+builder.Services.AddScoped<IPermisoRepositorio, PermisoRepositorio>();
+builder.Services.AddScoped<IProgresoRepositorio, ProgresoRepositorio>();
+builder.Services.AddScoped<IReparacionRepositorio, ReparacionRepositorio>();
+builder.Services.AddScoped<ITipoAutoRepositorio, TipoAutoRepositorio>();
+builder.Services.AddScoped<ITipoUsuarioRepositorio, TipoUsuarioRepositorio>();
 builder.Services.AddScoped<IVehiculoRepositorio, VehiculoRepositorio>();
+
 
 var app = builder.Build();
 
