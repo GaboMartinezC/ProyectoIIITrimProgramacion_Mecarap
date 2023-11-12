@@ -20,7 +20,11 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio
             dbSet.Add(entidad);
 
         }
+        void IRepositorio<T>.Editar(T entidad)
+        {
+            dbSet.Update(entidad);
 
+        }
         void IRepositorio<T>.Grabar()
         {
             _db.SaveChanges();

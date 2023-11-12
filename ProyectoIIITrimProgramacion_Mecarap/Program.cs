@@ -1,4 +1,6 @@
 using ProyectoIIITrimProgramacion_Mecarap.Datos;
+using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio;
+using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IVehiculoRepositorio, VehiculoRepositorio>();
 
 var app = builder.Build();
 
