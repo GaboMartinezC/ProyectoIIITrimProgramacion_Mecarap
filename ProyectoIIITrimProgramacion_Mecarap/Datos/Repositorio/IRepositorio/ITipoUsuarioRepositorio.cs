@@ -1,6 +1,6 @@
 ﻿using ProyectoIIITrimProgramacion_Mecarap.Models;
 namespace ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio
 {
-    public interface ITipoUsuarioRepositorio : IRepositorio<TipoAuto>
+    public interface ITipoUsuarioRepositorio : IRepositorio<TipoUsuario>
     {}
 }
