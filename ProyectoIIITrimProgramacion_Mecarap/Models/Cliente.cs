@@ -6,7 +6,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
     public class Cliente
     {
         [Key]
-        public int? Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string? Nombre { get; set; }
         [Required]

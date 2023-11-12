@@ -6,7 +6,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
     public class Reparacion
     {
         [Key]
-        public int? Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string? FechaSolicitada { get; set; }
         

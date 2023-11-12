@@ -23,7 +23,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio
            );
 
         void Agregar(T entidad);
-        void Editar(T entidad);
+        void Actualizar(T entidad);
 
         void Remover(T entidad);
 
