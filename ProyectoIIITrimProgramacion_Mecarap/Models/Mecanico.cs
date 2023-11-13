@@ -12,10 +12,10 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         [Required]
         public string? Pass { get; set; }
         [Required]
-        public int? IdTipoUsuario { get; set; }
+        public int IdTipoUsuario { get; set; }
         [ForeignKey("IdTipoUsuario")]
-        public virtual TipoUsuario? TipoUsuario { get; set; }
+        public virtual TipoUsuario TipoUsuario { get; set; }
         [Required]
-        public bool? Borrado { get; set; }
+        public bool Borrado { get; set; }
     }
 }
