@@ -25,20 +25,23 @@
                 <div class="row p-1">
                     @foreach (var tipo in Model)
                     {
-                        <div class="col-12 col-md-4 d-flex justify-content-center p-1">
-                            <div class="card" style="width: 18rem;">
-                                <img src="@tipo.ImgUrl" class="card-img-top" alt="..." height="100" width="200">
-                                <div class="card-body">
-                                    <h5 class="card-title">@tipo.Descripcion</h5>
-                                    <a asp-controller="TipoAuto" asp-action="Editar" asp-route-Id="@tipo" class="btn btn-outline-warning">
-                                        <p>Editar</p>
-                                    </a>
-                                    <a asp-controller="TipoAuto" asp-action="Eliminar" asp-route-Id="@tipo" class="btn btn-outline-danger">
-                                        <p>Eliminar</p>
-                                    </a>
+                        if (!tipo.Borrado)
+                        {
+                            <div class="col-12 col-md-4 d-flex justify-content-center p-1">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="@tipo.ImgUrl" class="card-img-top" alt="..." height="100" width="200">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@tipo.Descripcion</h5>
+                                        <a asp-controller="TipoAuto" asp-action="Editar" asp-route-Id="@tipo.Id" class="btn btn-outline-warning">
+                                            <p>Editar</p>
+                                        </a>
+                                        <a asp-controller="TipoAuto" asp-action="Eliminar" asp-route-Id="@tipo.Id" class="btn btn-outline-danger">
+                                            <p>Eliminar</p>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
                 </div>
             }

@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProyectoIIITrimProgramacion_Mecarap.Datos;
+using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
 using ProyectoIIITrimProgramacion_Mecarap.Models;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {
     public class TipoAutoController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ITipoAutoRepositorio _repoTipoAuto; 
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public TipoAutoController(ApplicationDbContext db, IWebHostEnvironment webHostEnvironment)
+        public TipoAutoController(ITipoAutoRepositorio repoTipoAuto, IWebHostEnvironment webHostEnvironment)
         {
-            _db = db;
+            _repoTipoAuto = repoTipoAuto;
             _webHostEnvironment = webHostEnvironment;
         }
         public IActionResult Index()
         {
-            IEnumerable<TipoAuto> lista = _db.TiposAuto;
+            IEnumerable<TipoAuto> lista = _repoTipoAuto.ObtenerTodos();
             return View(lista);
         }
         public IActionResult Guardar()
@@ -45,26 +45,26 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
                 tipoAuto.ImgUrl = fileName + extension;
                 tipoAuto.Borrado = false;
                 //verifica que no hayan dos tipo autos iguales
-                var dbSet = _db.TiposAuto;
+                var dbSet = _repoTipoAuto.ObtenerTodos();
                 foreach (var tipo in dbSet)
                 {
                     if (tipo.Descripcion == tipoAuto.Descripcion || tipo.ImgUrl == tipoAuto.Descripcion)
                         return View();
                 }
-                _db.TiposAuto.Add(tipoAuto);
-                _db.SaveChanges();
+                _repoTipoAuto.Agregar(tipoAuto);
+                _repoTipoAuto.Grabar();
                 return RedirectToAction("Index");
             }
             else
                 return View();
         }
-        public IActionResult Editar(int? id)
+        public IActionResult Editar(int id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            TipoAuto tipoAuto = _db.TiposAuto.Find(id);
+            TipoAuto tipoAuto = _repoTipoAuto.Obtener(id);
             return View(tipoAuto);
         }
         [ValidateAntiForgeryToken]
@@ -72,51 +72,47 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         //fixme
         public IActionResult Editar(TipoAuto tipoAuto)
         {
-            if (ModelState.IsValid)
+            //Recibo un archivo que proviene del formulario html
+            var files = HttpContext.Request.Form.Files;
+            //Guarda en la string la ubicacion donde se guardará la imagen
+            string webRootPath = _webHostEnvironment.WebRootPath;
+            //archivo + ruta
+            string upload = webRootPath + WC.ImagenRuta;
+            //asigna un id unico a la imagen
+            string fileName = Guid.NewGuid().ToString();
+            //le asigna una extensión al archivo
+            string extension = Path.GetExtension(files[0].FileName);
+            using (var fileStream = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
             {
-                //Recibo un archivo que proviene del formulario html
-                var files = HttpContext.Request.Form.Files;
-                //Guarda en la string la ubicacion donde se guardará la imagen
-                string webRootPath = _webHostEnvironment.WebRootPath;
-                //archivo + ruta
-                string upload = webRootPath + WC.ImagenRuta;
-                //asigna un id unico a la imagen
-                string fileName = Guid.NewGuid().ToString();
-                //le asigna una extensión al archivo
-                string extension = Path.GetExtension(files[0].FileName);
-                using (var fileStream = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
-                {
-                    files[0].CopyTo(fileStream);
-                }
-                tipoAuto.ImgUrl = fileName + extension;
-                _db.TiposAuto.Add(tipoAuto);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+                files[0].CopyTo(fileStream);
             }
-            return View();
+            tipoAuto.ImgUrl = fileName + extension;
+            _repoTipoAuto.Actualizar(tipoAuto);
+            _repoTipoAuto.Grabar();
+            return RedirectToAction("Index");
         }
-        public IActionResult Eliminar(int? id)
+        public IActionResult Eliminar(int id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            TipoAuto tipo = _db.TiposAuto.Find(id);
+            TipoAuto tipo = _repoTipoAuto.Obtener(id);
             return View(tipo);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Eliminar(TipoAuto? tipo)
+        public IActionResult Eliminar(TipoAuto tipo)
         {
             if (tipo.Id == null || tipo.Id == 0)
             {
                 return NotFound();
             }
-            Vehiculo? vehiculo = _db.Vehiculos.Find(tipo.Id);
-            vehiculo.Borrado = true;
-            _db.Update(vehiculo);
-            _db.SaveChanges();
-            return View();
+            TipoAuto? tipoVehiculo = _repoTipoAuto.Obtener(tipo.Id);
+            tipoVehiculo.Borrado = true;
+            _repoTipoAuto.Actualizar(tipoVehiculo);
+            _repoTipoAuto.Grabar();
+            return RedirectToAction("Index");
         }
     }
 }

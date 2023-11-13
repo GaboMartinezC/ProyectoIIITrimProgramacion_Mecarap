@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProyectoIIITrimProgramacion_Mecarap.Datos;
 using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
 using ProyectoIIITrimProgramacion_Mecarap.Models;
 using ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {

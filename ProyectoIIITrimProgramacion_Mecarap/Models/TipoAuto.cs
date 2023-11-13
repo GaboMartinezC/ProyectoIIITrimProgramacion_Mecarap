@@ -11,6 +11,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         [Required]
         public string? ImgUrl { get; set; }
         [Required]
-        public bool? Borrado { get; set; }
+        public bool Borrado { get; set; }
     }
 }
