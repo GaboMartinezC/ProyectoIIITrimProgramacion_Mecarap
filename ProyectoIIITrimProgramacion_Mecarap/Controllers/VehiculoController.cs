@@ -13,7 +13,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         private readonly ITipoAutoRepositorio _repoTipoAuto;
         private readonly IClienteRepositorio _repoCliente;
         private readonly IVehiculoRepositorio _repoVehiculo;
-        public VehiculoController( ITipoAutoRepositorio repoTipoAuto, IClienteRepositorio repoCliente, IVehiculoRepositorio repoVehiculo)
+        public VehiculoController(ITipoAutoRepositorio repoTipoAuto, IClienteRepositorio repoCliente, IVehiculoRepositorio repoVehiculo)
         {
             _repoTipoAuto = repoTipoAuto; 
             _repoCliente = repoCliente;
