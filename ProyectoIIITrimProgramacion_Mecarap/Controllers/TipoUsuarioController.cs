@@ -54,7 +54,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         //fixme
         public IActionResult Editar(TipoUsuario tipoUsuario)
         {
-            _db.TipoUsuario.Update(tipoUsuario);
+            _db.TiposUsuario.Update(tipoUsuario);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -65,7 +65,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             {
                 return NotFound();
             }
-            TipoUsuario tipoUsuario = _db.TipoUsuario.Find(id);
+            TipoUsuario tipoUsuario = _db.TiposUsuario.Find(id);
             return View(tipoUsuario);
         }
 
@@ -73,7 +73,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         [HttpPost]
         public IActionResult Eliminar(TipoUsuario tipoUsuario)
         {
-            TipoUsuario? tpu = _db.TipoUsuario.Find(tipoUsuario.Id);
+            TipoUsuario? tpu = _db.TiposUsuario.Find(tipoUsuario.Id);
             tpu.Borrado = true;
             _db.Update(tpu);
             _db.SaveChanges();
