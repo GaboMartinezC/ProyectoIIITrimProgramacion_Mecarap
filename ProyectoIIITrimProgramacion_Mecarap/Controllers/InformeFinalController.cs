@@ -28,7 +28,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         [HttpPost]
         public IActionResult Guardar(InformeFinal informe)
         {
-            informe.Estado = false;
+            //informe.Estado = false;
             var dbSet = _db.InformesFinal;
             foreach (var i in dbSet)
             {
@@ -74,7 +74,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         public IActionResult Eliminar(InformeFinal informe)
         {
             InformeFinal? est = _db.InformesFinal.Find(informe.Id);
-            est.Estado = true;
+            //est.Estado = true;
             _db.Update(est);
             _db.SaveChanges();
             return RedirectToAction("Index");

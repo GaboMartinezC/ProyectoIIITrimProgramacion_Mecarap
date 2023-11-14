@@ -14,8 +14,6 @@
                 <input asp-for="Id" type="hidden" value="@Model.Id" />
                 <label>Descripcion</label>
                 <input asp-for="Descripcion" type="text" class="form-control" disabled value="@Model.Descripcion"><br>
-                <label>Tipo de Auto</label>
-                <input disabled class="form-control m-1" value="@Model.Descripcion" />
                 <button class="btn btn-outline-warning" type="submit">Eliminar</button>
                 <a asp-action="Index" asp-controller="Estado" class="btn btn-outline-danger">Cancelar</a>
             </form>
