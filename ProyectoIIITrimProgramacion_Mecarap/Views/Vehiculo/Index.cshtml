@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ProyectoIIITrimProgramacion_Mecarap.Models.Vehiculo>
+@{
+	ViewData["Title"] = "Vehículo";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 offset-md-4 col-md-4 text-center">
+            <h1>Vehiculos</h1>
+        </div>
+        <div class="col-12 col-md-4"></div>
+        @if (Model.Count() > 0)
+        {
+            <div class="input-group mb-3" list="datalistVehiculos">
+                <input type="text" class="form-control" placeholder="Descripción" lista="listaBusqueda">
+                <button class="btn btn-outline-secondary" type="button">Buscar</button>
+                <datalist id="listaBusqueda">
+                    @foreach (var vehiculo in Model)
+                    {
+                        <option value="@vehiculo.Descripcion"></option>
+                    }
+                </datalist>
+            </div>
+            <div class="col-10 offset-1 offset-md-2 col-md-9 card">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descripción</th>
+                            <th>Modelo</th>
+                            <th>Tipo Auto</th>
+                            <th>Propietario</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var vehiculo in Model)
+                        {
+                            if (!vehiculo.Borrado)
+                            {
+                                <tr>
+                                <td>@vehiculo.Id</td>
+                                <td>@vehiculo.Descripcion</td>
+                                <td>@vehiculo.Modelo</td>
+                                <td>@vehiculo.TipoAuto.Descripcion</td>
+                                <td>@vehiculo.Usuario.Nombre</td>
+                                <td>
+                                    <a asp-controller="Vehiculo" asp-action="Editar" asp-route-Id="@vehiculo.Id" class="btn btn-warning">
+                                        <p>Editar</p>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a asp-controller="Vehiculo" asp-action="Eliminar" asp-route-Id="@vehiculo.Id" class="btn btn-danger">
+                                        <p>Eliminar</p>
+                                    </a>
+                                </td>
+                            </tr>                                
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="col-10 offset-1 offset-md-2 col-md-9 card text-center">
+                <p>No hay vehiculos que mostrar</p>
+            </div>
+        }
+        <div class="col-1 col-md-1"></div>
+    </div>
+</div>
+<div class="footer fixed-bottom">
+    <div class="row">
+        <div class="col-12 offset-md-11 col-md-1">
+            <a class="btn btn-outline-primary m-1" asp-controller="Vehiculo" asp-action="Guardar">
+                Agregar &plus;
+            </a>
+        </div>
+    </div>
+</div>

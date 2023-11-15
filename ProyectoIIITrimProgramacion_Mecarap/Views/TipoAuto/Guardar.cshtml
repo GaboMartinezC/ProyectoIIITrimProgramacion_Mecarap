@@ -1,0 +1,22 @@
+﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.TipoAuto
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 offset-md-4 col-md-4 text-center">
+            <h1>Guardar Tipo Vehículo</h1>
+        </div>
+        <div class="col-12 col-md-4"></div>
+        <div class="col-10 offset-1 offset-md-2 col-md-9 card">
+            <form asp-action="Guardar" asp-controller="TipoAuto" method="post" class="m-5" enctype="multipart/form-data">
+                <input asp-for="Descripcion" type="text" class="form-control m-1" placeholder="Descripcion"><br>
+                <input class="form-control m-1" type="file"><br>
+                <button class="btn btn-outline-primary">Ingresar</button>
+                <a class="btn btn-outline-danger" asp-controller="TipoAuto" asp-action="Index">Cancelar</a>
+            </form>
+        </div>
+        <div class="col-1 col-md-1"></div>
+    </div>
+</div>
