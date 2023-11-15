@@ -8,7 +8,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Datos
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {}
         public DbSet<Observacion> Observaciones { get; set; }
-        public DbSet<Permiso> Permisos { get; set; }
         public DbSet<Estado> Estados { get; set; }
         public DbSet<TipoAuto> TiposAuto { get; set; }
         public DbSet<HojaIngreso> HojasIngreso { get; set; }

@@ -16,7 +16,6 @@ builder.Services.AddScoped<IHojaIngresoRepositorio, HojaIngresoRepositorio>();
 builder.Services.AddScoped<IInformeFinalRepositorio, InformeFinalRepositorio>();
 builder.Services.AddScoped<IMecanicoRepositorio, MecanicoRepositorio>();
 builder.Services.AddScoped<IObservacionRepositorio, ObservacionRepositorio>();
-builder.Services.AddScoped<IPermisoRepositorio, PermisoRepositorio>();
 builder.Services.AddScoped<IProgresoRepositorio, ProgresoRepositorio>();
 builder.Services.AddScoped<IReparacionRepositorio, ReparacionRepositorio>();
 builder.Services.AddScoped<ITipoAutoRepositorio, TipoAutoRepositorio>();

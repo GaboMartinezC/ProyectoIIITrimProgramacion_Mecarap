@@ -5,7 +5,7 @@
 namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 {
     /// <inheritdoc />
-    public partial class ELIMINARBORRADOCOMONULO : Migration
+    public partial class BorrarNuloDeBorrado : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

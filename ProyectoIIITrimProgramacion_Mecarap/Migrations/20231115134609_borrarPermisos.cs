@@ -5,7 +5,7 @@
 namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 {
     /// <inheritdoc />
-    public partial class alt1 : Migration
+    public partial class borrarPermisos : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,7 +16,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Borrado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,7 +32,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fecha = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Observaciones = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Observaciones = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Borrado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -44,7 +46,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Estado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -59,24 +62,12 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fecha = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Borrado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Observaciones", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Permisos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Permisos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,11 +77,26 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Borrado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TiposAuto", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TiposUsuario",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Borrado = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TiposUsuario", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -100,7 +106,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Pass = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Pass = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Borrado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -114,7 +121,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdObservacion = table.Column<int>(type: "int", nullable: false)
+                    IdObservacion = table.Column<int>(type: "int", nullable: false),
+                    Borrado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -128,21 +136,23 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TiposUsuario",
+                name: "Mecanicos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdPermiso = table.Column<int>(type: "int", nullable: false)
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Pass = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IdTipoUsuario = table.Column<int>(type: "int", nullable: false),
+                    Borrado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TiposUsuario", x => x.Id);
+                    table.PrimaryKey("PK_Mecanicos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TiposUsuario_Permisos_IdPermiso",
-                        column: x => x.IdPermiso,
-                        principalTable: "Permisos",
+                        name: "FK_Mecanicos_TiposUsuario_IdTipoUsuario",
+                        column: x => x.IdTipoUsuario,
+                        principalTable: "TiposUsuario",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -156,7 +166,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Modelo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IdTipoAuto = table.Column<int>(type: "int", nullable: false),
-                    IdPropietario = table.Column<int>(type: "int", nullable: false)
+                    IdPropietario = table.Column<int>(type: "int", nullable: false),
+                    Borrado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -171,27 +182,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         name: "FK_Vehiculos_Usuarios_IdPropietario",
                         column: x => x.IdPropietario,
                         principalTable: "Usuarios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Mecanicos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Pass = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdTipoUsuario = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Mecanicos", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Mecanicos_TiposUsuario_IdTipoUsuario",
-                        column: x => x.IdTipoUsuario,
-                        principalTable: "TiposUsuario",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -292,11 +282,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                 column: "IdProgreso");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TiposUsuario_IdPermiso",
-                table: "TiposUsuario",
-                column: "IdPermiso");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Vehiculos_IdPropietario",
                 table: "Vehiculos",
                 column: "IdPropietario");
@@ -342,9 +327,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
-
-            migrationBuilder.DropTable(
-                name: "Permisos");
         }
     }
 }

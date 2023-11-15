@@ -12,6 +12,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         [Required]
         public string? Observaciones { get; set;}
         [Required]
-        public bool? Borrado { get; set; }
+        public bool Borrado { get; set; }
     }
 }

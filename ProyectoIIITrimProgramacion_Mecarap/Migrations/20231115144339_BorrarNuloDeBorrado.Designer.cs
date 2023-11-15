@@ -12,8 +12,8 @@ using ProyectoIIITrimProgramacion_Mecarap.Datos;
 namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231016042509_borrado")]
-    partial class borrado
+    [Migration("20231115144339_BorrarNuloDeBorrado")]
+    partial class BorrarNuloDeBorrado
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,11 +27,11 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
             modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Cliente", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool?>("Borrado")
                         .IsRequired()
@@ -58,6 +58,9 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Borrado")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -75,8 +78,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool?>("Borrado")
-                        .IsRequired()
+                    b.Property<bool>("Borrado")
                         .HasColumnType("bit");
 
                     b.Property<string>("Descripcion")
@@ -108,6 +110,9 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("InformesFinal");
@@ -115,18 +120,16 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
             modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Mecanico", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool?>("Borrado")
-                        .IsRequired()
+                    b.Property<bool>("Borrado")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("IdTipoUsuario")
-                        .IsRequired()
+                    b.Property<int>("IdTipoUsuario")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")
@@ -173,30 +176,13 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                     b.ToTable("Observaciones");
                 });
 
-            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Permiso", b =>
+            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Progreso", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Permisos");
-                });
-
-            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Progreso", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<bool?>("Borrado")
                         .IsRequired()
@@ -218,11 +204,11 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
             modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Reparacion", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("FechaSolicitada")
                         .IsRequired()
@@ -277,8 +263,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool?>("Borrado")
-                        .IsRequired()
+                    b.Property<bool>("Borrado")
                         .HasColumnType("bit");
 
                     b.Property<string>("Descripcion")
@@ -310,27 +295,20 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("IdPermiso")
-                        .IsRequired()
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("IdPermiso");
 
                     b.ToTable("TiposUsuario");
                 });
 
             modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Vehiculo", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool?>("Borrado")
-                        .IsRequired()
+                    b.Property<bool>("Borrado")
                         .HasColumnType("bit");
 
                     b.Property<string>("Descripcion")
@@ -427,17 +405,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Migrations
                     b.Navigation("Progreso");
 
                     b.Navigation("Vehiculo");
-                });
-
-            modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.TipoUsuario", b =>
-                {
-                    b.HasOne("ProyectoIIITrimProgramacion_Mecarap.Models.Permiso", "Permiso")
-                        .WithMany()
-                        .HasForeignKey("IdPermiso")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Permiso");
                 });
 
             modelBuilder.Entity("ProyectoIIITrimProgramacion_Mecarap.Models.Vehiculo", b =>

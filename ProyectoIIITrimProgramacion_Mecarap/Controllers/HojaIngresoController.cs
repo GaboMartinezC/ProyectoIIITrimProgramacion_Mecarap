@@ -4,16 +4,16 @@ using ProyectoIIITrimProgramacion_Mecarap.Models;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {
-    public class EstadoController : Controller
+    public class HojaIngresoController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public EstadoController(ApplicationDbContext db)
+        public HojaIngresoController(ApplicationDbContext db)
         {
             _db = db;
         }
         public IActionResult Index()
         {
-            IEnumerable<Estado> lista = _db.Estados;
+            IEnumerable<HojaIngreso> lista = _db.HojasIngreso;
             return View(lista);
         }
         public IActionResult Guardar()
@@ -22,16 +22,16 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Guardar(Estado estado)
+        public IActionResult Guardar(HojaIngreso hojaIngreso)
         {
-            estado.Borrado = false;
+            hojaIngreso.Borrado = false;
             var dbSet = _db.Estados;
             foreach (var e in dbSet)
             {
-                if (estado.Descripcion == e.Descripcion)
+                if (hojaIngreso.Descripcion == e.Descripcion)
                     return View();
             }
-            _db.Estados.Add(estado);
+            _db.HojasIngreso.Add(hojaIngreso);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -41,14 +41,14 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             {
                 return NotFound();
             }
-            Estado estado = _db.Estados.Find(id);
-            return View(estado);
+            HojaIngreso hojaIngreso= _db.HojasIngreso.Find(id);
+            return View(hojaIngreso);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Editar(Estado estado)
+        public IActionResult Editar(HojaIngreso hojaIngreso)
         {
-            _db.Estados.Update(estado);
+            _db.HojasIngreso.Update(hojaIngreso);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -58,20 +58,21 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             {
                 return NotFound();
             }
-            Estado estado = _db.Estados.Find(id);
-            return View(estado);
+            HojaIngreso hojaIngreso = _db.HojasIngreso.Find(id);
+            return View(hojaIngreso);
         }
 
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Eliminar(Estado estado)
+        public IActionResult Eliminar(HojaIngreso hojaIngreso)
         {
-            Estado? est = _db.Estados.Find(estado.Id);
-            est.Borrado = true;
-            _db.Update(est);
+            HojaIngreso? hojaIN= _db.HojasIngreso.Find(hojaIngreso);
+            hojaIN.Borrado = true;
+            _db.Update(hojaIN);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 }

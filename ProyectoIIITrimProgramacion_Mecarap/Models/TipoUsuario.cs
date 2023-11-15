@@ -10,10 +10,6 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Models
         [Required]
         public string? Descripcion { get; set; }
         [Required]
-        public int? IdPermiso { get; set; }
-        [ForeignKey("IdPermiso")]
-        public virtual Permiso? Permiso { get; set; }
-        [Required]
         public bool? Borrado { get; set; }
     }
 }
