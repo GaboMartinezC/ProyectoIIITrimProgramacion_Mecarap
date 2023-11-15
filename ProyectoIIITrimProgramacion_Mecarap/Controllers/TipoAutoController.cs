@@ -60,7 +60,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         }
         public IActionResult Editar(int id)
         {
-            if (id == null || id == 0)
+            if (id == 0)
             {
                 return NotFound();
             }

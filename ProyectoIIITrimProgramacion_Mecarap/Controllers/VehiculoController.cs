@@ -18,7 +18,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<Vehiculo> lista = _repoVehiculo.ObtenerTodos(incluirPropiedades: "Usuario");
+            IEnumerable<Vehiculo> lista = _repoVehiculo.ObtenerTodos(incluirPropiedades: "Usuario,TipoAuto");
             return View(lista);
         }
         public IActionResult Guardar()
