@@ -1,22 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoIIITrimProgramacion_Mecarap.Datos;
 using ProyectoIIITrimProgramacion_Mecarap.Models;
-
+using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {
     public class InformeFinalController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly IInformeFinalRepositorio _repoInformeFinal;
 
-        public InformeFinalController(ApplicationDbContext db)
+        public InformeFinalController(IInformeFinalRepositorio repoInformeFinal)
         {
-            _db = db;
+            _repoInformeFinal = repoInformeFinal;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<InformeFinal> lista = _db.InformesFinal;
+            IEnumerable<InformeFinal> lista = _repoInformeFinal.ObtenerTodos();
             return View(lista);
         }
         public IActionResult Guardar()
@@ -28,7 +28,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         public IActionResult Guardar(InformeFinal informe)
         {
             informe.Estado = false;
-            var dbSet = _db.InformesFinal;
+            var dbSet = _repoInformeFinal.ObtenerTodos();
             foreach (var i in dbSet)
             {
                 if (informe.Descripcion == i.Descripcion)
@@ -36,46 +36,46 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
                     return View(i);
                 }
             }
-            _db.InformesFinal.Add(informe);
-            _db.SaveChanges();
+            _repoInformeFinal.Agregar(informe);
+            _repoInformeFinal.Grabar();
             return RedirectToAction("Index");
         }
-        public IActionResult Editar(int? id)
+        public IActionResult Editar(int id)
         {
             //comprobamos que el id enviado no sea ni cero ni nulo
-            if (id == 0 || id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
             //buscamos el id que corresponda al enviado
-            InformeFinal informe = _db.InformesFinal.Find(id);
+            InformeFinal informe = _repoInformeFinal.Obtener(id);
             return View(informe);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Editar(InformeFinal informe)
         {
-            _db.InformesFinal.Update(informe);
-            _db.SaveChanges();
+            _repoInformeFinal.Actualizar(informe);
+            _repoInformeFinal.Grabar();
             return RedirectToAction("Index");
         }
-        public IActionResult Eliminar(int? id)
+        public IActionResult Eliminar(int id)
         {
-            if (id == 0 || id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
-            InformeFinal informe = _db.InformesFinal.Find(id);
+            InformeFinal informe = _repoInformeFinal.Obtener(id);
             return View(informe);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Eliminar(InformeFinal informe)
         {
-            InformeFinal? est = _db.InformesFinal.Find(informe.Id);
+            InformeFinal? est = _repoInformeFinal.Obtener(informe.Id);
             est.Estado = true;
-            _db.Update(est);
-            _db.SaveChanges();
+            _repoInformeFinal.Actualizar(est);
+            _repoInformeFinal.Grabar();
             return RedirectToAction("Index");
 
         }

@@ -1,4 +1,4 @@
-﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels.ReparacionVMs
+﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels.ReparacionVM
 @{ 
     ViewData["Title"] = "Home Cliente";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,9 +11,9 @@
         {
             <div class="px-5 py-4 my-2 d-flex flex-column  _rounded-4 col-12" style="background-color: white;">
                 <span class="fw-bold fs-5 mb-2">Número de reparación: <span>@reparacion.Id</span></span>
-                <span class="mb-2">@reparacion.Vehiculo</span>
+                <span class="mb-2">@reparacion.Vehiculo.Descripcion</span>
                 <div class="d-flex align-items-center justify-content-between">
-                    <span>@reparacion.Mecanico</span>
+                    <span>@reparacion.Mecanico.Nombre</span>
                     <span class="text-danger _cursor-pointer fw-bold">Ver detalles </span>
                 </div>
             </div>
@@ -29,21 +29,16 @@
                 <option class="border btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Seleccione el vehículo
                 </option>
-                @if (Model.Vehiculos.Count() != 0)
-                {
-                    <option class="dropdown-menu">
-                        @foreach (var reparacion in Model.Reparaciones)
-                        {
-                            Console.WriteLine(reparacion);
-                            <span selected value="@reparacion.Id"><a class="dropdown-item" href="#">@reparacion.Vehiculo</a></span>
+                <div class="dropdown-menu">
+                    @foreach (var reparacion in Model.Reparaciones)
+                    {   
+                        <option selected value="@reparacion.Id"><a class="dropdown-item" href="#">@reparacion.Vehiculo.Descripcion</a></option>
                         
-                        }
-                    </option>
-                    
-                }
+                    }
+                </div>
             </select>
             <div class="btn _bg-red rounded-3 mt-3 w-50 mb-3">
-                <span class="text-white fw-bold fs-5">Solicitar Cita</span>
+                <a class="text-white fw-bold fs-5" asp-controller="Reparacion" asp-action="Guardar">Solicitar Cita</a>
             </div>
         </div>
     </div>

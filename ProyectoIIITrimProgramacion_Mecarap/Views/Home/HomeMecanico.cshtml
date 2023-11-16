@@ -41,7 +41,7 @@
                         <td>@reparacion.FechaSolicitada</td>
                         <td>@reparacion.Estado.Descripcion</td>
                         <td>
-                            <div class="btn _bg-red _rounded-4 px-4 text-light" asp-controller="Reparacion" asp-action="AceptarReparacion" asp-route-Id="@reparacion" >Aceptar</div>
+                            <a   class="btn _bg-red _rounded-4 px-4 text-light" asp-controller="Reparacion" asp-action="AceptarReparacion" asp-route-Id="@reparacion.Id" >Aceptar</a>
                         </td>
                     </tr>
                     

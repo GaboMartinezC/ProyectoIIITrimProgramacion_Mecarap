@@ -4,7 +4,6 @@ using ProyectoIIITrimProgramacion_Mecarap.Datos;
 using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
 using ProyectoIIITrimProgramacion_Mecarap.Models;
 using ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels;
-
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {
     public class ClienteController : Controller
@@ -13,11 +12,10 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ApplicationDbContext _db;
 
-        public ClienteController(IClienteRepositorio repoCliente, IWebHostEnvironment webHostEnvironment, ApplicationDbContext db)
+        public ClienteController(IClienteRepositorio repoCliente, IWebHostEnvironment webHostEnvironment)
         {
             _repoCliente = repoCliente;
             _webHostEnvironment = webHostEnvironment;
-            _db = db;
         }
         public IActionResult Index()
         {
@@ -36,8 +34,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Add(cliente);
-                _db.SaveChanges();
+                _repoCliente.Agregar(cliente);
+                _repoCliente.Grabar();
                 return RedirectToAction(nameof(Index));
             }
             return View(cliente);
@@ -45,16 +43,11 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 
         public IActionResult Editar(int id)
         {
-            if (id == null)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
-
-            Cliente cliente = _repoCliente.Obtener(id);
-            if (cliente == null)
-            {
-                return NotFound();
-            }
+            Cliente cliente= _repoCliente.Obtener(id);
             return View(cliente);
         }
 
@@ -63,18 +56,9 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Editar(int id, Cliente cliente)
         {
-            if (id != cliente.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                _db.Update(cliente);
-                _db.SaveChanges();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(cliente);
+            _repoCliente.Actualizar(cliente);
+            _repoCliente.Grabar();
+            return RedirectToAction("Index");
         }
 
     }

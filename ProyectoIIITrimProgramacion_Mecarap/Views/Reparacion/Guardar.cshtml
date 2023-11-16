@@ -1,0 +1,44 @@
+﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels.ReparacionVM
+
+@{
+    ViewData["Title"] = "Guardar";  
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 offset-md-4 col-md-4 text-center">
+            <h1>Solicitar Reparacion</h1>
+        </div>
+        <div class="col-12 col-md-4"></div>
+        <div class="col-10 offset-1 offset-md-2 col-md-9 card">
+            <form method="post" class="m-5 d-flex flex-column" asp-action="AceptarReparacion" asp-controller="Reparacion">
+                <select class="dropdown my-2">
+                    <option class="border btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Seleccione el vehículo
+                    </option>
+                    <div class="dropdown-menu">
+                        @foreach (var vehiculo in Model.Vehiculos)
+                        {
+                        <option selected value="@vehiculo.Id"><a class="dropdown-item" href="#">@vehiculo.Descripcion</a></option>
+                        }
+                    </div>
+                </select>
+                <select class="dropdown my-2">
+                    <option class="border btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Seleccione el mecanico
+                    </option>
+                    <div class="dropdown-menu">
+                    @foreach (var mecanico in Model.Mecanicos)
+                    {
+                        <option selected value="@mecanico.Id"><a class="dropdown-item" href="#">@mecanico.Nombre</a></option>
+                    }
+                    </div>
+                </select>
+                <button class="btn _bg-red" type="submit">Solicitar</button>
+                <a asp-action="Index" asp-controller="Estado" class="btn btn-outline-danger">Cancelar</a>
+            </form>
+        </div>
+    </div>
+    <div class="col-1 col-md-1"></div>
+    </div>
+</div>

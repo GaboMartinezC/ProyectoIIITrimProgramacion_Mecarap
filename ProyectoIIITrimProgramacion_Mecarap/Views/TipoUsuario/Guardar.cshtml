@@ -1,0 +1,24 @@
+﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.TipoUsuario
+<div class="row">
+    <br>
+    <br>
+    <div class="col-12 offset-md-4 col-md-4 text-center mt-5">
+        <h1>Guardar Tipo Usuario</h1>
+    </div>
+    <br>
+    <div class="col-12 col-md-4"></div>
+    <div class="col-10 offset-1 offset-md-2 col-md-9 card mt-4 shadow-lg">
+        <form asp-action="Guardar" asp-controller="TipoUsuario" method="post" class="m-5" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input asp-for="Descripcion" type="text" class="form-control m-1" placeholder="Descripcion">
+            </div>
+            <br>
+            <div class="d-flex justify-content-center align-items-center fw-bold">
+                <a class="btn _bg-grey btn-outline-dark me-2" asp-controller="TipoUsuario" asp-action="Index">Cancelar</a>
+                <button class="btn _bg-red btn-confirm">Guardar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-1 col-md-1"></div>
+</div>

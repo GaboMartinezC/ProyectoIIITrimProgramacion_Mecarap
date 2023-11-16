@@ -1,14 +1,38 @@
-﻿@{
+﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels.UsuarioVM
+@{
     ViewData["Title"] = "Home Page";
+    Layout = "";
 }
-<div class="col-12 d-flex align-items-center justify-content-center" style="min-height: 98vh;">
-    <div class="col-5 d-flex flex-column align-items-center justify-content-center py-5 px-5 _rounded-4 bg-light px-4 ">
-        <span class="fs-2 fw-bold">Inicio de sesión</span>
-        <span>Ingrese los siguientes datos</span>
-        <input class="form-control _rounded-4 py-2 px-3 my-3" placeholder="Nombre" type="text">
-        <input class="form-control _rounded-4 py-2 px-3 mb-3" placeholder="Contraseña" type="password">
-        <div class="d-flex align-items-center justify-content-center p-3 fw-bold _bg-red px-4 py-2 _rounded-4 _cursor-pointer w-75">
-            <span class="text-light fs-4">Iniciar sesión</span>
-        </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mecarap</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ProyectoIIITrimProgramacion_Mecarap.styles.css" asp-append-version="true" />
+</head>
+<body class="container-fluid _bg-background p-0 m-0 d-flex ">
+    <div class="container-fluid col-12 p-0 m-0">
+        <main role="main" class=" p-0 m-0">
+
+            <div class="col-12 d-flex align-items-center justify-content-center" style="min-height: 98vh;">
+                <div class="col-5 d-flex flex-column align-items-center justify-content-center py-5 px-5 _rounded-4 bg-light px-4 ">
+                    <span class="fs-2 fw-bold">Inicio de sesión</span>
+                    <form asp-controller="Home" asp-action="Index" method="post">
+                        <span>Ingrese los siguientes datos</span>
+                        <input asp-for="@Model.nombre" class="form-control _rounded-4 py-2 px-3 my-3" placeholder="Nombre" type="text">
+                        <input asp-for="@Model.pass" class="form-control _rounded-4 py-2 px-3 mb-3" placeholder="Contraseña" type="password">
+                         <button class=" btn d-flex align-items-center justify-content-center p-3 fw-bold _bg-red px-4 py-2 _rounded-4 _cursor-pointer w-75" text-light fs-4" type="submit">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </main>
     </div>
-</div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

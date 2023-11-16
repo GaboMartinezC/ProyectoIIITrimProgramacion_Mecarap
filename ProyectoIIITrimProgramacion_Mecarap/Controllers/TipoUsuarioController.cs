@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoIIITrimProgramacion_Mecarap.Datos;
+using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
 using ProyectoIIITrimProgramacion_Mecarap.Models;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {
     public class TipoUsuarioController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        public TipoUsuarioController(ApplicationDbContext db)
+        private readonly ITipoUsuarioRepositorio _repoTipoUsuario;
+        public TipoUsuarioController(ITipoUsuarioRepositorio repoTipoUsuario)
         {
-            _db = db;
+            _repoTipoUsuario = repoTipoUsuario;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<TipoUsuario> lista = _db.TiposUsuario;
+            IEnumerable<TipoUsuario> lista = _repoTipoUsuario.ObtenerTodos();
             return View(lista);
         }
 
@@ -28,44 +29,43 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         public IActionResult Guardar(TipoUsuario tipoUsuario)
         {
             tipoUsuario.Borrado = false;
-            var dbSet = _db.TiposUsuario;
+            var dbSet = _repoTipoUsuario.ObtenerTodos();
             foreach (var e in dbSet)
             {
                 if (tipoUsuario.Descripcion == e.Descripcion)
                     return View();
             }
-            _db.TiposUsuario.Add(tipoUsuario);
-            _db.SaveChanges();
+            _repoTipoUsuario.Agregar(tipoUsuario);
+            _repoTipoUsuario.Grabar();
             return RedirectToAction("Index");
         }
 
-        public IActionResult Editar(int? id)
+        public IActionResult Editar(int id)
         {
-            if (id == null || id == 0)
+            if (id == 0)
             {
                 return NotFound();
             }
-            TipoUsuario tipoUsuario = _db.TiposUsuario.Find(id);
+            TipoUsuario tipoUsuario = _repoTipoUsuario.Obtener(id);
             return View(tipoUsuario);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        //fixme
         public IActionResult Editar(TipoUsuario tipoUsuario)
         {
-            _db.TiposUsuario.Update(tipoUsuario);
-            _db.SaveChanges();
+            _repoTipoUsuario.Actualizar(tipoUsuario);
+            _repoTipoUsuario.Grabar();
             return RedirectToAction("Index");
         }
 
-        public IActionResult Eliminar(int? id)
+        public IActionResult Eliminar(int id)
         {
-            if (id == null || id == 0)
+            if (id == 0)
             {
                 return NotFound();
             }
-            TipoUsuario tipoUsuario = _db.TiposUsuario.Find(id);
+            TipoUsuario tipoUsuario = _repoTipoUsuario.Obtener(id);
             return View(tipoUsuario);
         }
 
@@ -73,10 +73,10 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         [HttpPost]
         public IActionResult Eliminar(TipoUsuario tipoUsuario)
         {
-            TipoUsuario? tpu = _db.TiposUsuario.Find(tipoUsuario.Id);
+            TipoUsuario? tpu = _repoTipoUsuario.Obtener(tipoUsuario.Id);
             tpu.Borrado = true;
-            _db.Update(tpu);
-            _db.SaveChanges();
+            _repoTipoUsuario.Actualizar(tpu);
+            _repoTipoUsuario.Grabar();
             return RedirectToAction("Index");
         }
     }

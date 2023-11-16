@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoIIITrimProgramacion_Mecarap.Datos;
+using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
 using ProyectoIIITrimProgramacion_Mecarap.Models;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {
     public class ProgresoController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        public ProgresoController(ApplicationDbContext db)
+        private readonly IProgresoRepositorio _repoProgreso;
+        public ProgresoController(IProgresoRepositorio repoProgreso)
         {
-            _db = db;
+            _repoProgreso = repoProgreso;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<Progreso> lista = _db.Progresos;
+            IEnumerable<Progreso> lista = _repoProgreso.ObtenerTodos();
             return View(lista);
         }
 
@@ -28,44 +29,43 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         public IActionResult Guardar(Progreso progreso)
         {
             progreso.Borrado = false;
-            var dbSet = _db.Progresos;
+            var dbSet = _repoProgreso.ObtenerTodos();
             foreach (var p in dbSet)
             {
                 if (progreso.Descripcion == p.Descripcion)
                     return View();
             }
-            _db.Progresos.Add(progreso);
-            _db.SaveChanges();
+            _repoProgreso.Agregar(progreso);
+            _repoProgreso.Grabar();
             return RedirectToAction("Index");
         }
 
-        public IActionResult Editar(int? id)
+        public IActionResult Editar(int id)
         {
-            if (id == null || id == 0)
+            if (id == 0)
             {
                 return NotFound();
             }
-            Progreso progreso = _db.Progresos.Find(id);
+            Progreso progreso = _repoProgreso.Obtener(id);
             return View(progreso);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        //fixme
         public IActionResult Editar(Progreso progreso)
         {
-            _db.Progresos.Update(progreso);
-            _db.SaveChanges();
+            _repoProgreso.Actualizar(progreso);
+            _repoProgreso.Grabar();
             return RedirectToAction("Index");
         }
 
-        public IActionResult Eliminar(int? id)
+        public IActionResult Eliminar(int id)
         {
-            if (id == null || id == 0)
+            if (id == 0)
             {
                 return NotFound();
             }
-            Progreso progreso = _db.Progresos.Find(id);
+            Progreso? progreso = _repoProgreso.Obtener(id);
             return View(progreso);
         }
 
@@ -73,10 +73,10 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         [HttpPost]
         public IActionResult Eliminar(Progreso progreso)
         {
-            Progreso? pgr = _db.Progresos.Find(progreso.Id);
+            Progreso? pgr = _repoProgreso.Obtener(progreso.Id);
             pgr.Borrado = true;
-            _db.Update(pgr);
-            _db.SaveChanges();
+            _repoProgreso.Actualizar(progreso);
+            _repoProgreso.Grabar();
             return RedirectToAction("Index");
         }
     }

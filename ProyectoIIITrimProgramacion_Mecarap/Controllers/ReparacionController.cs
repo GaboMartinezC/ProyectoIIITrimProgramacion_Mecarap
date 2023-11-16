@@ -2,6 +2,7 @@
 using ProyectoIIITrimProgramacion_Mecarap.Models;
 using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
 using ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels;
+using Microsoft.AspNetCore.Razor.Language.Intermediate;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {
@@ -23,8 +24,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         {
             ReparacionVM vm = new()
             {
-                Reparaciones = _repoReparacion.ObtenerTodos(incluirPropiedades: "Vehiculo, HojaIngreso, " +
-                "Progreso, InformeFinal, Mecanico, Estado")
+                Reparaciones = _repoReparacion.ObtenerTodos(incluirPropiedades: "Vehiculo, HojaIngreso , Progreso, InformeFinal, Mecanico, Estado")
             };
             return View(vm);
         }
@@ -32,8 +32,9 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         {
             ReparacionVM vm = new()
             {
+                Reparaciones = _repoReparacion.ObtenerTodos(),
+                Vehiculos = _repoVehiculo.ObtenerTodos(),
                 Mecanicos = _repoMecanico.ObtenerTodos(),
-                Vehiculos = _repoVehiculo.ObtenerTodos(incluirPropiedades: "Usuario"),
                 Estados = _repoEstado.ObtenerTodos()
             };
             return View(vm);
@@ -50,7 +51,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
                 IdProgreso = vm.IdProgreso,
                 IdInforme = vm.IdInforme,
                 IdMecanico = vm.IdMecanico,
-                IdEstado = vm.IdEstado
+                IdEstado = 1
             };
             _repoReparacion.Agregar(reparacion);
             return RedirectToAction("Index");
@@ -91,7 +92,17 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             _repoReparacion.Actualizar(reparacion);
             return RedirectToAction("Index");
         }
-
+        public IActionResult AceptarReparacion()
+        {
+            ReparacionVM vm = new()
+            {
+                Reparaciones = _repoReparacion.ObtenerTodos(),
+                Vehiculos = _repoVehiculo.ObtenerTodos(),
+                Mecanicos = _repoMecanico.ObtenerTodos(),
+                Estados = _repoEstado.ObtenerTodos()
+            };
+            return View(vm);
+        }
         [HttpPost]
         public IActionResult AceptarReparacion(Reparacion vm)
         {
