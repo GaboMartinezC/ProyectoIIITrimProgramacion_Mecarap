@@ -1,0 +1,29 @@
+﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.InformeFinal
+@{
+    ViewData["Title"] = "Informe Final";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 offset-md-4 col-md-4 text-center">
+            <h1>Editar Informe Final</h1>
+        </div>
+        <div class="col-12 col-md-4"></div>
+        <div class="col-10 offset-1 offset-md-2 col-md-9 card">
+            <form method="post" class="m-5" asp-action="Editar" asp-controller="InformeFinal">
+                <input asp-for="Descripcion" type="text" class="form-control" placeholder="Descripcion" id="descripcion" value="@Model.Descripcion"><br>
+                @if (Model.Descripcion.Count() == 0)
+                {
+                    <button disabled class="btn btn-outline-success" type="submit">Editar</button>
+                }
+                else
+                {
+                    <button class="btn btn-outline-success" type="submit">Editar</button>
+                }
+                <a asp-action="Index" asp-controller="Estado" class="btn btn-outline-danger">Cancelar</a>
+            </form>
+        </div>
+        <div class="col-1 col-md-1"></div>
+    </div>
+</div>
