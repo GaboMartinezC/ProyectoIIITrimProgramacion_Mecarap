@@ -33,29 +33,35 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         public IActionResult Guardar(VehiculoVM vm)
         {
             IEnumerable<Vehiculo> dbset = _repoVehiculo.ObtenerTodos();
-            foreach (var auto in dbset)
+            if (vm.Descripcion == null || vm.Modelo == null)
+                return RedirectToAction("Index");
+            else
             {
-                if (auto.Descripcion == vm.Descripcion.Trim())
+                foreach (var auto in dbset)
                 {
-                    if (!auto.Borrado)
+                    if (auto.Descripcion == vm.Descripcion.Trim())
                     {
-                        vm.tiposAuto = _repoTipoAuto.ObtenerTodos();
-                        vm.clientes = _repoCliente.ObtenerTodos();
-                        return View(vm);
+                        if (!auto.Borrado)
+                        {
+                            vm.tiposAuto = _repoTipoAuto.ObtenerTodos();
+                            vm.clientes = _repoCliente.ObtenerTodos();
+                            return View(vm);
+                        }
                     }
                 }
+                Vehiculo vehiculo = new Vehiculo()
+                {
+                    Descripcion = vm.Descripcion.Trim(),
+                    Modelo = vm.Modelo.Trim(),
+                    IdPropietario = vm.IdPropietario,
+                    IdTipoAuto = vm.IdTipoAuto,
+                    Borrado = false
+                };
+                _repoVehiculo.Agregar(vehiculo);
+                _repoVehiculo.Grabar();
+                return RedirectToAction("Index");
             }
-            Vehiculo vehiculo = new Vehiculo()
-            {
-                Descripcion = vm.Descripcion.Trim(),
-                Modelo = vm.Modelo.Trim(),
-                IdPropietario = vm.IdPropietario,
-                IdTipoAuto = vm.IdTipoAuto,
-                Borrado = false
-            };
-            _repoVehiculo.Agregar(vehiculo);
-            _repoVehiculo.Grabar();
-            return RedirectToAction("Index");
+
         }
         public IActionResult Editar(int id)
         {
@@ -80,18 +86,25 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         [HttpPost]
         public IActionResult Editar(VehiculoVM vm)
         {
-            Vehiculo vehiculo = new()
+            if (vm.Descripcion == null || vm.Modelo == null)
             {
-                Id = vm.Id,
-                Descripcion = vm.Descripcion,
-                Modelo = vm.Modelo,
-                IdTipoAuto = vm.IdTipoAuto,
-                IdPropietario = vm.IdPropietario,
-                Borrado = false
-            };
-            _repoVehiculo.Actualizar(vehiculo);
-            _repoVehiculo.Grabar();
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                Vehiculo vehiculo = new()
+                {
+                    Id = vm.Id,
+                    Descripcion = vm.Descripcion,
+                    Modelo = vm.Modelo,
+                    IdTipoAuto = vm.IdTipoAuto,
+                    IdPropietario = vm.IdPropietario,
+                    Borrado = false
+                };
+                _repoVehiculo.Actualizar(vehiculo);
+                _repoVehiculo.Grabar();
+                return RedirectToAction("Index");
+            }
         }
         public IActionResult Eliminar(int id)
         {
