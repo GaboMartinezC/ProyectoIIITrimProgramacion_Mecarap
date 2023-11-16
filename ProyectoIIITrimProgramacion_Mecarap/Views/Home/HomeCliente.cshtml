@@ -1,4 +1,4 @@
-﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels.ReparacionVM
+﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels.ReparacionVMs
 @{ 
     ViewData["Title"] = "Home Cliente";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -25,23 +25,23 @@
             <span class="">Ingrese los siguientes datos</span>
             <input placeholder="Descripcion" class="form-control my-2" type="text">
             <input class="form-control my-2" type="date">
-            <div class="dropdown my-2">
-                <button class="border btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <select class="dropdown my-2">
+                <option class="border btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Seleccione el vehículo
-                </button>
+                </option>
                 @if (Model.Vehiculos.Count() != 0)
                 {
-                    <select class="dropdown-menu">
+                    <option class="dropdown-menu">
                         @foreach (var reparacion in Model.Reparaciones)
                         {
                             Console.WriteLine(reparacion);
-                            <option selected value="@reparacion.Id"><a class="dropdown-item" href="#">@reparacion.Vehiculo</a></option>
+                            <span selected value="@reparacion.Id"><a class="dropdown-item" href="#">@reparacion.Vehiculo</a></span>
                         
                         }
-                    </select>
+                    </option>
                     
                 }
-            </div>
+            </select>
             <div class="btn _bg-red rounded-3 mt-3 w-50 mb-3">
                 <span class="text-white fw-bold fs-5">Solicitar Cita</span>
             </div>

@@ -10393,11 +10393,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj",
+      "projectUniqueName": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj",
+      "projectPath": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj",
       "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\obj\\",
+      "outputPath": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -40,15 +40,18 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 
         public IActionResult HomeCliente()
         {
-            ReparacionVM reparacion = new()
+            ReparacionVM lista = new()
             {
-                Vehiculos = _repoVehiculo.ObtenerTodos()
+                Reparaciones = _repoReparacion.ObtenerTodos(),
+                Mecanicos = _repoMecanico.ObtenerTodos(),
+                Vehiculos = _repoVehiculo.ObtenerTodos(),
+                Estados = _repoEstado.ObtenerTodos()
             };
-            return View(reparacion);
+            return View(lista);
         }
         public IActionResult HomeMecanico()
         {
-            IEnumerable<Reparacion> lista = _repoReparacion.ObtenerTodos();
+            IEnumerable<Reparacion> lista = _repoReparacion.ObtenerTodos(incluirPropiedades: "Vehiculo,Mecanico,Estado");
             return View(lista);
         }
     }

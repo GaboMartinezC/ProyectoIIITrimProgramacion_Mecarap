@@ -91,5 +91,23 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             _repoReparacion.Actualizar(reparacion);
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult AceptarReparacion(Reparacion vm)
+        {
+            Reparacion reparacion = new Reparacion()
+            {
+                Id = vm.Id,
+                FechaSolicitada = vm.FechaSolicitada,
+                IdAuto = vm.IdAuto,
+                IdHojaIngreso = vm.IdHojaIngreso,
+                IdProgreso = vm.IdProgreso,
+                IdInforme = vm.IdInforme,
+                IdMecanico = vm.IdMecanico,
+                IdEstado = 2
+            };  
+            _repoReparacion.Actualizar(reparacion);
+            return RedirectToAction("Index");
+        }
     }
 }

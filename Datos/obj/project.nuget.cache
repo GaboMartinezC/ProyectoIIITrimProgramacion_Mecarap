@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CUc6Ooh5woSyA7/KdhO4/c1uLXkO5lJAzW/GgpQ+haQqY0sd1pKAM7m42eqgnTOHZS5sjQbZMdNzmks28OpO0Q==",
+  "dgSpecHash": "6OVnPK3XtZUVfei4SP6CbSpeuCdgeLBYFaATLbuT1+LO7CPhPstDGpOqHfsg2CPJPY3vlNJEJPlqEhCOXqT2dw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\Datos.csproj",
+  "projectFilePath": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\Datos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dylan\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\dylan\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

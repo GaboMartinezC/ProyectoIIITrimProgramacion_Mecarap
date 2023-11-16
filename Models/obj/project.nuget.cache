@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OSFyvIn54iBezEoY7p3UKJtTCdWEjtpEAqs5y/iMGtMb2gBfVz+dlyYR3tPJnRfwrtXl2eHEEymy1SAI0hZkkQ==",
+  "dgSpecHash": "ch0Xa9Z2G1n7dVHOuTS6wO2J/U6tl0ZoTC/Up0TvIObW2qrg6zLIQPOjTbr6aCNeGX7OabIlcnGXpIg1G6B6zA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj",
+  "projectFilePath": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dylan\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\dylan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

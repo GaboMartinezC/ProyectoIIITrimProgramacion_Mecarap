@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\Datos.csproj": {}
+    "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\Datos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\Datos.csproj": {
+    "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\Datos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\Datos.csproj",
+        "projectUniqueName": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\Datos.csproj",
         "projectName": "Datos",
-        "projectPath": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\Datos.csproj",
+        "projectPath": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\Datos.csproj",
         "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Datos\\obj\\",
         "projectStyle": "PackageReference",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj"
+              "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj"
               }
             }
           }
@@ -83,14 +83,14 @@
         }
       }
     },
-    "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj": {
+    "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj",
+        "projectPath": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dylan\\Source\\Repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\obj\\",
+        "outputPath": "C:\\Users\\dylan\\source\\repos\\ProyectoIIITrimProgramacion_Mecarap\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
