@@ -1,7 +1,10 @@
-﻿namespace ProyectoIIITrimProgramacion_Mecarap
+﻿using Models.ViewModels;
+
+namespace ProyectoIIITrimProgramacion_Mecarap
 {
     public class WC
     {
         public static string ImagenRuta = @"\imagenes\tipoauto\";
+        public static UsuarioVM usuarioActivo;
     }
 }

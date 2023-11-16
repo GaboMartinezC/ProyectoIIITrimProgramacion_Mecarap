@@ -3,6 +3,7 @@ using ProyectoIIITrimProgramacion_Mecarap.Models;
 using System.Diagnostics;
 using ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels;
 using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
+using Models.ViewModels;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {
@@ -13,12 +14,15 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         private readonly IVehiculoRepositorio _repoVehiculo;
         private readonly IMecanicoRepositorio _repoMecanico;
         private readonly IEstadoRepositorio _repoEstado;
-        public HomeController(ILogger<HomeController> logger, IEstadoRepositorio repoEstado, IReparacionRepositorio repoReparacion, IMecanicoRepositorio repoMecanico, IVehiculoRepositorio repoVehiculo)
+        private readonly IClienteRepositorio _repoCliente;
+        public HomeController(ILogger<HomeController> logger, IEstadoRepositorio repoEstado, IReparacionRepositorio repoReparacion, IMecanicoRepositorio repoMecanico,
+            IVehiculoRepositorio repoVehiculo, IClienteRepositorio repoCliente)
         {
             _logger = logger;
             _repoReparacion = repoReparacion;
             _repoVehiculo = repoVehiculo;
             _repoMecanico = repoMecanico;
+            _repoCliente = repoCliente;
             _repoEstado = repoEstado;
         }
 
@@ -26,7 +30,31 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         {
             return View();
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(UsuarioVM usuario)
+        {
+            IEnumerable<Mecanico> mecanicos = _repoMecanico.ObtenerTodos();
+            foreach (var mecanico in mecanicos)
+            {
+                if (mecanico.Nombre == usuario.nombre && mecanico.Pass == usuario.pass)
+                {
+                    WC.usuarioActivo = usuario;
+                    return RedirectToAction("HomeMecanico");
+                }
+                    
+            }
+            IEnumerable<Cliente> clientes = _repoCliente.ObtenerTodos();
+            foreach (var cliente in clientes)
+            {
+                if (cliente.Nombre == usuario.nombre && cliente.Pass == usuario.pass)
+                {
+                    WC.usuarioActivo = usuario;
+                    return RedirectToAction("HomeCliente");
+                }
+            }
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

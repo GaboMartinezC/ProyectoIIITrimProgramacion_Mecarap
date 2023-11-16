@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
 using ProyectoIIITrimProgramacion_Mecarap.Models;
+using ProyectoIIITrimProgramacion_Mecarap.Utilidades
 using ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
@@ -45,7 +46,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
                         {
                             vm.tiposAuto = _repoTipoAuto.ObtenerTodos();
                             vm.clientes = _repoCliente.ObtenerTodos();
-                            return View(vm);
+                            return View();
                         }
                     }
                 }

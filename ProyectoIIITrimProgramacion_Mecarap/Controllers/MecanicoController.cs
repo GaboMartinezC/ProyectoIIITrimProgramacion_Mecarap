@@ -100,7 +100,7 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
             mecanico.Borrado = true;
             _repoMecanico.Actualizar(mecanico);
             _repoMecanico.Grabar();
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
