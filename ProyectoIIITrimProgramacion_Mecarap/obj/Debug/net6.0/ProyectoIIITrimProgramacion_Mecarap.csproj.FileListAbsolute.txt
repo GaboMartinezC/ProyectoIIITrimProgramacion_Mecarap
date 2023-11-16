@@ -812,3 +812,16 @@ C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimP
 C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
 C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\System.Web.WebPages.dll
 C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\System.Web.Mvc.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\System.Web.Razor.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\System.Web.Helpers.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\System.Web.WebPages.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\Datos.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\Models.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\Utilidades.dll
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\Datos.pdb
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\Models.pdb
+C:\Users\dylan\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\bin\Debug\net6.0\Utilidades.pdb

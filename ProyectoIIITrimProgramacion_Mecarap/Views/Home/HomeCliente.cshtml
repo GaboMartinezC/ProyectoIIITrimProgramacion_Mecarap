@@ -1,0 +1,50 @@
+﻿@model ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels.ReparacionVM
+@{ 
+    ViewData["Title"] = "Home Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div class="col-12 pt-4 d-flex">
+    <div class="col-5 d-flex flex-column mt-4">
+    <span class="fw-bold fs-2">Mis Reparaciones Actuales</span>
+        @foreach(var reparacion in Model.Reparaciones)
+        {
+            <div class="px-5 py-4 my-2 d-flex flex-column  _rounded-4 col-12" style="background-color: white;">
+                <span class="fw-bold fs-5 mb-2">Número de reparación: <span>@reparacion.Id</span></span>
+                <span class="mb-2">@reparacion.Vehiculo</span>
+                <div class="d-flex align-items-center justify-content-between">
+                    <span>@reparacion.Mecanico</span>
+                    <span class="text-danger _cursor-pointer fw-bold">Ver detalles </span>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-5 p-5">
+        <div class="col-12 d-flex flex-column bg-white px-5 _rounded-4 py-4">
+            <span class="fw-bold fs-3">Solicitar una nueva cita</span>
+            <span class="">Ingrese los siguientes datos</span>
+            <input placeholder="Descripcion" class="form-control my-2" type="text">
+            <input class="form-control my-2" type="date">
+            <div class="dropdown my-2">
+                <button class="border btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Seleccione el vehículo
+                </button>
+                @if (Model.Vehiculos.Count() != 0)
+                {
+                    <select class="dropdown-menu">
+                        @foreach (var reparacion in Model.Reparaciones)
+                        {
+                            Console.WriteLine(reparacion);
+                            <option selected value="@reparacion.Id"><a class="dropdown-item" href="#">@reparacion.Vehiculo</a></option>
+                        
+                        }
+                    </select>
+                    
+                }
+            </div>
+            <div class="btn _bg-red rounded-3 mt-3 w-50 mb-3">
+                <span class="text-white fw-bold fs-5">Solicitar Cita</span>
+            </div>
+        </div>
+    </div>
+</div>

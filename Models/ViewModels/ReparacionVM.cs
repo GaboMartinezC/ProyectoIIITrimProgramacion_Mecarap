@@ -1,4 +1,5 @@
-﻿namespace ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels
+﻿using ProyectoIIITrimProgramacion_Mecarap.Models;
+namespace ProyectoIIITrimProgramacion_Mecarap.Models.ViewModels
 {
     public class ReparacionVM : Reparacion
     {

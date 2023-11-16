@@ -9,40 +9,45 @@
     <link rel="stylesheet" href="~/ProyectoIIITrimProgramacion_Mecarap.styles.css" asp-append-version="true" />
 </head>
 <body class="container-fluid _bg-background p-0 m-0 d-flex ">
-    <header style="min-height: 100vh !important;" class="p-0 m-0 col-md-1 col-2 _bg-red d-flex flex-column align-items-center justify-content-center">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-            <svg class="_svg-menu" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 28.5098C3 22.7887 3 19.9282 4.298 17.5569C5.596 15.1855 7.96737 13.7138 12.7101 10.7703L17.7101 7.66717C22.7235 4.55572 25.2302 3 28 3C30.7698 3 33.2765 4.55572 38.29 7.66717L43.29 10.7703C48.0327 13.7138 50.404 15.1855 51.702 17.5569C53 19.9282 53 22.7887 53 28.5098V32.3125C53 42.0645 53 46.9407 50.071 49.9702C47.1422 53 42.428 53 33 53H23C13.5719 53 8.85788 53 5.92893 49.9702C3 46.9407 3 42.0645 3 32.3125V28.5098Z"  stroke-width="6" />
-            </svg>
-        </a>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Vehiculo" asp-action="Index">
-            <svg class="_svg-menu" fill="black" viewBox="0 0 96 96"  xmlns="http://www.w3.org/2000/svg">
-                <g fill="black" clip-path="url(#clip0_152_77)">
-                    <path d="M75.68 24.04C74.88 21.68 72.64 20 70 20H26C23.36 20 21.16 21.68 20.32 24.04L12 48V80C12 82.2 13.8 84 16 84H20C22.2 84 24 82.2 24 80V76H72V80C72 82.2 73.8 84 76 84H80C82.2 84 84 82.2 84 80V48L75.68 24.04ZM26 64C22.68 64 20 61.32 20 58C20 54.68 22.68 52 26 52C29.32 52 32 54.68 32 58C32 61.32 29.32 64 26 64ZM70 64C66.68 64 64 61.32 64 58C64 54.68 66.68 52 70 52C73.32 52 76 54.68 76 58C76 61.32 73.32 64 70 64ZM20 44L26 26H70L76 44H20Z" />
-                </g>
-                <defs>
-                    <clipPath id="clip0_152_77">
-                        <rect width="96" height="96" fill="white" />
-                    </clipPath>
-                </defs>
-            </svg>
-        </a>
-        <a class="nav-link text-dark" asp-area="" asp-controller="TipoAuto" asp-action="Index">
-            <svg class="_svg-menu" fill="black" viewBox="0 0 80 64" xmlns="http://www.w3.org/2000/svg">
-                <path d="M40 0H12C5.36 0 0 5.36 0 12V44C0 50.64 5.36 56 12 56L8 60V64H12L20 55.88L28 56V36H8V7.92L44 8V16H52V12C52 5.36 46.64 0 40 0ZM12 40C14.2 40 16 41.8 16 44C16 46.2 14.2 48 12 48C9.8 48 8 46.2 8 44C8 41.8 9.8 40 12 40ZM74.28 22.64C73.72 21.04 72.2 20 70.4 20H41.64C39.8 20 38.32 21.04 37.72 22.64L32 39.08L32.04 61.12C32.04 62.64 33.28 64 34.8 64H37.28C38.8 64 40 62.48 40 60.96V56H72V60.96C72 62.48 73.24 64 74.76 64H77.2C78.72 64 79.96 62.64 79.96 61.12L80 55.64V39.08L74.28 22.64ZM41.64 24H70.4L74.52 36H37.52L41.64 24ZM40 48C37.8 48 36 46.2 36 44C36 41.8 37.8 40 40 40C42.2 40 44 41.8 44 44C44 46.2 42.2 48 40 48ZM72 48C69.8 48 68 46.2 68 44C68 41.8 69.8 40 72 40C74.2 40 76 41.8 76 44C76 46.2 74.2 48 72 48Z" />
-            </svg>
-        </a>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Estado" asp-action="Index">
-            <svg class="_svg-menu" viewBox="0 0 40 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M34.68 8H28V0H12V8H5.32C2.4 8 0 10.4 0 13.32V74.64C0 77.6 2.4 80 5.32 80H34.64C37.6 80 40 77.6 40 74.68V13.32C40 10.4 37.6 8 34.68 8Z" fill="black" />
-            </svg>
-        </a>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Permiso" asp-action="Index">
-            <svg class="_svg-menu" fill="black" viewBox="0 0 80 64" xmlns="http://www.w3.org/2000/svg">
-                <path d="M40 0H12C5.36 0 0 5.36 0 12V44C0 50.64 5.36 56 12 56L8 60V64H12L20 55.88L28 56V36H8V7.92L44 8V16H52V12C52 5.36 46.64 0 40 0ZM12 40C14.2 40 16 41.8 16 44C16 46.2 14.2 48 12 48C9.8 48 8 46.2 8 44C8 41.8 9.8 40 12 40ZM74.28 22.64C73.72 21.04 72.2 20 70.4 20H41.64C39.8 20 38.32 21.04 37.72 22.64L32 39.08L32.04 61.12C32.04 62.64 33.28 64 34.8 64H37.28C38.8 64 40 62.48 40 60.96V56H72V60.96C72 62.48 73.24 64 74.76 64H77.2C78.72 64 79.96 62.64 79.96 61.12L80 55.64V39.08L74.28 22.64ZM41.64 24H70.4L74.52 36H37.52L41.64 24ZM40 48C37.8 48 36 46.2 36 44C36 41.8 37.8 40 40 40C42.2 40 44 41.8 44 44C44 46.2 42.2 48 40 48ZM72 48C69.8 48 68 46.2 68 44C68 41.8 69.8 40 72 40C74.2 40 76 41.8 76 44C76 46.2 74.2 48 72 48Z" />
-            </svg>
-        </a>
-    </header>
+    <div class="col-1">
+        <header style="min-height: 100vh !important;" class="sticky-top p-0 m-0 col-md-6 col-12 _bg-red d-flex flex-column align-items-center justify-content-center">
+            <a class="_cursor-pointer nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                <svg class="_svg-menu" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 28.5098C3 22.7887 3 19.9282 4.298 17.5569C5.596 15.1855 7.96737 13.7138 12.7101 10.7703L17.7101 7.66717C22.7235 4.55572 25.2302 3 28 3C30.7698 3 33.2765 4.55572 38.29 7.66717L43.29 10.7703C48.0327 13.7138 50.404 15.1855 51.702 17.5569C53 19.9282 53 22.7887 53 28.5098V32.3125C53 42.0645 53 46.9407 50.071 49.9702C47.1422 53 42.428 53 33 53H23C13.5719 53 8.85788 53 5.92893 49.9702C3 46.9407 3 42.0645 3 32.3125V28.5098Z"  stroke-width="6" />
+                </svg>
+            </a>
+            <a class="_cursor-pointer nav-link text-dark" asp-area="" asp-controller="Vehiculo" asp-action="Index">
+                <svg class="_svg-menu" fill="black" viewBox="0 0 96 96"  xmlns="http://www.w3.org/2000/svg">
+                    <g fill="black" clip-path="url(#clip0_152_77)">
+                        <path d="M75.68 24.04C74.88 21.68 72.64 20 70 20H26C23.36 20 21.16 21.68 20.32 24.04L12 48V80C12 82.2 13.8 84 16 84H20C22.2 84 24 82.2 24 80V76H72V80C72 82.2 73.8 84 76 84H80C82.2 84 84 82.2 84 80V48L75.68 24.04ZM26 64C22.68 64 20 61.32 20 58C20 54.68 22.68 52 26 52C29.32 52 32 54.68 32 58C32 61.32 29.32 64 26 64ZM70 64C66.68 64 64 61.32 64 58C64 54.68 66.68 52 70 52C73.32 52 76 54.68 76 58C76 61.32 73.32 64 70 64ZM20 44L26 26H70L76 44H20Z" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_152_77">
+                            <rect width="96" height="96" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="TipoAuto" asp-action="Index">
+                <svg class="_svg-menu" fill="black" viewBox="0 0 80 64" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 0H12C5.36 0 0 5.36 0 12V44C0 50.64 5.36 56 12 56L8 60V64H12L20 55.88L28 56V36H8V7.92L44 8V16H52V12C52 5.36 46.64 0 40 0ZM12 40C14.2 40 16 41.8 16 44C16 46.2 14.2 48 12 48C9.8 48 8 46.2 8 44C8 41.8 9.8 40 12 40ZM74.28 22.64C73.72 21.04 72.2 20 70.4 20H41.64C39.8 20 38.32 21.04 37.72 22.64L32 39.08L32.04 61.12C32.04 62.64 33.28 64 34.8 64H37.28C38.8 64 40 62.48 40 60.96V56H72V60.96C72 62.48 73.24 64 74.76 64H77.2C78.72 64 79.96 62.64 79.96 61.12L80 55.64V39.08L74.28 22.64ZM41.64 24H70.4L74.52 36H37.52L41.64 24ZM40 48C37.8 48 36 46.2 36 44C36 41.8 37.8 40 40 40C42.2 40 44 41.8 44 44C44 46.2 42.2 48 40 48ZM72 48C69.8 48 68 46.2 68 44C68 41.8 69.8 40 72 40C74.2 40 76 41.8 76 44C76 46.2 74.2 48 72 48Z" />
+                </svg>
+            </a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Estado" asp-action="Index">
+                <svg class="_svg-menu" viewBox="0 0 40 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M34.68 8H28V0H12V8H5.32C2.4 8 0 10.4 0 13.32V74.64C0 77.6 2.4 80 5.32 80H34.64C37.6 80 40 77.6 40 74.68V13.32C40 10.4 37.6 8 34.68 8Z" fill="black" />
+                </svg>
+            </a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Permiso" asp-action="Index">
+                <svg class="_svg-menu" fill="black" viewBox="0 0 80 64" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 0H12C5.36 0 0 5.36 0 12V44C0 50.64 5.36 56 12 56L8 60V64H12L20 55.88L28 56V36H8V7.92L44 8V16H52V12C52 5.36 46.64 0 40 0ZM12 40C14.2 40 16 41.8 16 44C16 46.2 14.2 48 12 48C9.8 48 8 46.2 8 44C8 41.8 9.8 40 12 40ZM74.28 22.64C73.72 21.04 72.2 20 70.4 20H41.64C39.8 20 38.32 21.04 37.72 22.64L32 39.08L32.04 61.12C32.04 62.64 33.28 64 34.8 64H37.28C38.8 64 40 62.48 40 60.96V56H72V60.96C72 62.48 73.24 64 74.76 64H77.2C78.72 64 79.96 62.64 79.96 61.12L80 55.64V39.08L74.28 22.64ZM41.64 24H70.4L74.52 36H37.52L41.64 24ZM40 48C37.8 48 36 46.2 36 44C36 41.8 37.8 40 40 40C42.2 40 44 41.8 44 44C44 46.2 42.2 48 40 48ZM72 48C69.8 48 68 46.2 68 44C68 41.8 69.8 40 72 40C74.2 40 76 41.8 76 44C76 46.2 74.2 48 72 48Z" />
+                </svg>
+            </a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="HomeCliente">
+               ASDFASDF
+            </a>
+        </header>
+    </div>
     <div class="container-fluid col-11 p-0 m-0">
         <main role="main" class=" p-0 m-0">
             @RenderBody()
