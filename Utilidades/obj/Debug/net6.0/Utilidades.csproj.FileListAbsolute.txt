@@ -1,0 +1,14 @@
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\bin\Debug\net6.0\Utilidades.deps.json
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\bin\Debug\net6.0\Utilidades.runtimeconfig.json
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\bin\Debug\net6.0\Utilidades.dll
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\bin\Debug\net6.0\Utilidades.pdb
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\obj\Debug\net6.0\Utilidades.csproj.AssemblyReference.cache
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\obj\Debug\net6.0\Utilidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\obj\Debug\net6.0\Utilidades.AssemblyInfoInputs.cache
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\obj\Debug\net6.0\Utilidades.AssemblyInfo.cs
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\obj\Debug\net6.0\Utilidades.csproj.CoreCompileInputs.cache
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\obj\Debug\net6.0\Utilidades.dll
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\obj\Debug\net6.0\refint\Utilidades.dll
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\obj\Debug\net6.0\Utilidades.pdb
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\obj\Debug\net6.0\Utilidades.genruntimeconfig.cache
+C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\Utilidades\obj\Debug\net6.0\ref\Utilidades.dll

@@ -9,93 +9,93 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProyectoIIITrimProgramacion_Mecarap
 build_property.RootNamespace = ProyectoIIITrimProgramacion_Mecarap
-build_property.ProjectDir = C:\Users\adria\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\
+build_property.ProjectDir = C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\adria\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap
+build_property.MSBuildProjectDirectory = C:\Users\marti\Source\Repos\ProyectoIIITrimProgramacion_Mecarap\ProyectoIIITrimProgramacion_Mecarap
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Estado/Editar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Estado/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvXEVkaXRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Estado/Eliminar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Estado/Eliminar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvXEVsaW1pbmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Estado/Guardar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Estado/Guardar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvXEd1YXJkYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Estado/Index.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Estado/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Home/Index.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Home/Privacy.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/InformeFinal/Editar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/InformeFinal/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mb3JtZUZpbmFsXEVkaXRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/InformeFinal/Guardar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/InformeFinal/Guardar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mb3JtZUZpbmFsXEd1YXJkYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Shared/Error.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/TipoAuto/Editar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/TipoAuto/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0F1dG9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/TipoAuto/Eliminar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/TipoAuto/Eliminar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0F1dG9cRWxpbWluYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/TipoAuto/Guardar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/TipoAuto/Guardar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0F1dG9cR3VhcmRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/TipoAuto/Index.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/TipoAuto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0F1dG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Vehiculo/Editar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Vehiculo/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWN1bG9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Vehiculo/Eliminar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Vehiculo/Eliminar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWN1bG9cRWxpbWluYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Vehiculo/Guardar.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Vehiculo/Guardar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWN1bG9cR3VhcmRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Vehiculo/Index.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Vehiculo/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWN1bG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/_ViewImports.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/_ViewStart.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/adria/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Shared/_Layout.cshtml]
+[C:/Users/marti/Source/Repos/ProyectoIIITrimProgramacion_Mecarap/ProyectoIIITrimProgramacion_Mecarap/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ji54j7zkso
