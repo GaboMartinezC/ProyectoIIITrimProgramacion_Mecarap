@@ -11,13 +11,11 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
     {
         private readonly IClienteRepositorio _repoCliente;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly ApplicationDbContext _db;
 
-        public ClienteController(IClienteRepositorio repoCliente, IWebHostEnvironment webHostEnvironment, ApplicationDbContext db)
+        public ClienteController(IClienteRepositorio repoCliente, IWebHostEnvironment webHostEnvironment)
         {
             _repoCliente = repoCliente;
             _webHostEnvironment = webHostEnvironment;
-            _db = db;
         }
         public IActionResult Index()
         {
@@ -36,8 +34,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Add(cliente);
-                _db.SaveChanges();
+                _repoCliente.Agregar(cliente);
+                _repoCliente.Grabar();
                 return RedirectToAction(nameof(Index));
             }
             return View(cliente);
@@ -70,8 +68,8 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 
             if (ModelState.IsValid)
             {
-                _db.Update(cliente);
-                _db.SaveChanges();
+                _repoCliente.Actualizar(cliente);
+                _repoCliente.Grabar();
                 return RedirectToAction(nameof(Index));
             }
             return View(cliente);

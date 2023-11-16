@@ -1,19 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoIIITrimProgramacion_Mecarap.Datos;
+using ProyectoIIITrimProgramacion_Mecarap.Datos.Repositorio.IRepositorio;
 using ProyectoIIITrimProgramacion_Mecarap.Models;
 
 namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
 {
     public class HojaIngresoController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        public HojaIngresoController(ApplicationDbContext db)
+        private readonly IHojaIngresoRepositorio _repoHojaRepositorio;
+        public HojaIngresoController(IHojaIngresoRepositorio repoHojaRepositorio)
         {
-            _db = db;
+            _repoHojaRepositorio = repoHojaRepositorio;
         }
         public IActionResult Index()
         {
-            IEnumerable<HojaIngreso> lista = _db.HojasIngreso;
+            IEnumerable<HojaIngreso> lista = _repoHojaRepositorio.ObtenerTodos();
             return View(lista);
         }
         public IActionResult Guardar()
@@ -25,52 +26,50 @@ namespace ProyectoIIITrimProgramacion_Mecarap.Controllers
         public IActionResult Guardar(HojaIngreso hojaIngreso)
         {
             hojaIngreso.Borrado = false;
-            var dbSet = _db.Estados;
+            var dbSet = _repoHojaRepositorio.ObtenerTodos();
             foreach (var e in dbSet)
             {
                 if (hojaIngreso.Descripcion == e.Descripcion)
                     return View();
             }
-            _db.HojasIngreso.Add(hojaIngreso);
-            _db.SaveChanges();
+            _repoHojaRepositorio.Agregar(hojaIngreso);
+            _repoHojaRepositorio.Grabar();
             return RedirectToAction("Index");
         }
-        public IActionResult Editar(int? id)
+        public IActionResult Editar(int id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            HojaIngreso hojaIngreso= _db.HojasIngreso.Find(id);
+            HojaIngreso hojaIngreso = _repoHojaRepositorio.Obtener(id);
             return View(hojaIngreso);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Editar(HojaIngreso hojaIngreso)
         {
-            _db.HojasIngreso.Update(hojaIngreso);
-            _db.SaveChanges();
+            _repoHojaRepositorio.Actualizar(hojaIngreso);
+            _repoHojaRepositorio.Grabar();
             return RedirectToAction("Index");
         }
-        public IActionResult Eliminar(int? id)
+        public IActionResult Eliminar(int id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            HojaIngreso hojaIngreso = _db.HojasIngreso.Find(id);
+            HojaIngreso hojaIngreso = _repoHojaRepositorio.Obtener(id);
             return View(hojaIngreso);
         }
-
-
         [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Eliminar(HojaIngreso hojaIngreso)
         {
-            HojaIngreso? hojaIN= _db.HojasIngreso.Find(hojaIngreso);
+            HojaIngreso? hojaIN = _repoHojaRepositorio.Obtener(hojaIngreso.Id);
             hojaIN.Borrado = true;
-            _db.Update(hojaIN);
-            _db.SaveChanges();
+            _repoHojaRepositorio.Actualizar(hojaIN);
+            _repoHojaRepositorio.Grabar();
             return RedirectToAction("Index");
         }
 
